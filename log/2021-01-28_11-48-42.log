@@ -1,0 +1,4 @@
+2021-01-28 11:48:42,584 [INFO ] __init__ -> Setup logging.
+2021-01-28 11:48:42,584 [INFO ] run -> parsing_batch 0
+2021-01-28 11:48:42,678 [INFO ] run -> Batch parsed in 0.093126 seconds
+2021-01-28 11:48:42,701 [INFO ] run -> writing data to 2021-01-28_PASPolicy_flattened

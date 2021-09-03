@@ -1,0 +1,5 @@
+secure:
+  url: {VTS-detoken-server}
+  headers:
+    Content-Type: Application/json
+  Ocp-Apim-Subscription-Key: ''

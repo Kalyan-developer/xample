@@ -1,0 +1,52 @@
+# Configuration file to determine where to insert new data based on business needs
+# Configurations must follow the following syntax
+
+# TAG_NAME:
+#   source:
+#     - TAG_NAME1
+#     - TAG_NAME2
+#     ...
+#     -TAG_NAMEn
+#   on_path:
+#     - 'xPath/to/parent/tag'
+#     - 'all/paths/must/be/declared'
+
+# TAG_NAME:
+#   source:
+#     - TAG_NAME
+#   split_position: n
+#   on_path: True
+
+# Any 
+
+# Source information was split into two 40 byte fields
+NameLine1:
+  source:
+    - NameLine1
+    - NameLine2
+  target:
+    - NameLine
+  on_path:
+    - '/ServiceReply/GetBusinessEventDetailReply/TargetEventDetail/PolicyInformation/NamedInsured/Name'
+
+# Source information was split into two 40 byte fields
+NameLine2:
+  source:
+    - NameLine1
+    - NameLine2
+  target:
+    - NameLine
+  on_path:
+    - '/ServiceReply/GetBusinessEventDetailReply/TargetEventDetail/PolicyInformation/NamedInsured/Name'
+
+# ZipCodes only need to be tokenized in the last 4 digits
+ZipCode:
+  source:
+    - ZipCode
+  target:
+    - ZipCodeFirst
+    - ZipCodeLast
+  splits:
+    - [0, 5]
+    - [5, 9]
+  on_path: True

@@ -1,0 +1,195 @@
+keys:
+  # required
+  - Coverage
+  - Detail
+  - Peril
+  - CoveragePeril
+  - PremiumComponent
+  - Component
+  - HomeSignatureForms
+  - VehicleSignatureForms
+  - Mortgagee
+  - AdditionalInsured
+  - LossPayee
+  - AdditionalInterest
+  - WatercraftAdditionalInterest
+  - PolicyAdditionalInterest
+  - DriverVehicleRelationship
+  - VacSubclass
+  - VacItem
+  - AdditionalUnderlyingAuto
+  - AdditionalUnderlyingHome
+  - AdditionalUnderlyingFire
+  - AdditionalUnderlyingWatercraft
+  - AdditionalUnderlyingCorporateCar
+  - AdditionalUnderlyingBusinessPursuits
+  - HomeMods
+  - VehicleMods
+  - VacMods
+  - HomeLoss
+  - VehicleLoss
+  - TransactionReasons
+  - VehicleLOBSignatureForms
+  - MarketingProgramInformation
+  - ExcessLoss
+  - FamilyProtectionLoss
+  - HomeLiabilityLoss
+  - LiabilityLoss
+  - ValuableArticleLoss
+  - VehicleLiabilityLoss
+  - WorkCompLoss
+  - Payment
+  - SuccessStatus
+  - NonResidentLicense
+  - CountersigningInfo
+  - ContractInformation
+  - AgencyInstallmentInformation
+  - Home
+  - RiskLocation
+  - DNRInformation
+  - Driver
+  - Violation
+  - VacClass
+  - Umbrella
+  - BankVault
+  - Tenures
+  - Producer
+  - HighestTransientHomePartyId
+  - HighestTransientMortgageeId
+  - HighestTransientVehiclePartyId
+  - HighestTransientBankVaultId
+  - HighestTransientWatercraftPartyId
+  - ParagraphInformation
+  - Installment
+  - Coverages
+  - PremiumComponents
+  - Vehicle
+  - Watercraft
+  - VehicleRegistrant
+  - WritingCompany
+  - Text
+  # desired
+  - ReplyHeader
+  - RequestHeader
+  - GetBusinessEventDetailReply
+  - NewEventIdentifier
+  - AdditionalStateOrCountryCode
+  - Identifier
+  - BusinessEvent
+  - Exposures
+  - UnderwritingInformation
+  - USAddress
+  - InternationalAddress
+  - DriverResponsible
+  - ElectronicRewritePolicyExtensionNumber
+  - Losses
+
+# paths are stored as lists of tuples to match xmltodict's parent path
+paths:
+  Coverages:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - SourceEventDetail
+  PremiumComponents:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - SourceEventDetail
+  Vehicle:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+  Watercraft:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+  VehicleRegistrant:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail    
+  WritingCompany:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - PolicyInformation
+      - Producer
+      - WritingCompanies
+  Text:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - ContractInformation
+      - ParagraphInformation
+
+  # desired
+  NewEventIdentifier:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - Intent
+      - CreateBusinessEvent
+  AdditionalStateOrCountryCode:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - Insured
+      - USAddress
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - Insured
+      - InternationalAddress
+  Identifier:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - BusinessEvent
+  BusinessEvent:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+  Exposures:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - BusinessEvent
+  UnderwritingInformation:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - PolicyInformation
+  USAddress:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - PolicyInformation
+      - NamedInsured
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - PolicyInformation
+      - BillingAddress
+  InternationalAddress:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - PolicyInformation
+      - NamedInsured
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - PolicyInformation
+      - BillingAddress
+  DriverResponsible:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - Losses
+      - VehicleLoss
+  ElectronicRewritePolicyExtensionNumber:
+    - - ServiceReply
+      - GetBusinessEventDetailReply
+      - TargetEventDetail
+      - PolicyInformation

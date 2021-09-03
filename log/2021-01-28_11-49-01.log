@@ -1,0 +1,7 @@
+2021-01-28 11:49:01,819 [INFO ] __init__ -> Setup logging.
+2021-01-28 11:49:01,820 [INFO ] run -> parsing_batch 0
+2021-01-28 11:49:01,913 [INFO ] run -> Batch parsed in 0.093655 seconds
+2021-01-28 11:49:01,938 [INFO ] run -> writing data to 2021-01-28_PASPolicy_flattened
+2021-01-28 11:49:01,955 [INFO ] run -> Batch data fully processed in 0.135570
+2021-01-28 11:49:01,955 [INFO ] run -> writing reports to input_flattened
+2021-01-28 11:49:01,956 [INFO ] run -> XML Parsing Process Complete

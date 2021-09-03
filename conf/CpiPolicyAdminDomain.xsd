@@ -1,0 +1,3920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by CHUBB GROUP OF INSURANCE COMPANIES (CHUBB GROUP OF INSURANCE COMPANIES) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pd="http://chubb.com/cpi/polsvc/xmlobj" targetNamespace="http://chubb.com/cpi/polsvc/xmlobj" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="AdditionalInsuredPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="AdditionalInsuredIdentifier" type="pd:InterestedPartyIdentifierType"/>
+			<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- TCS >> NextGen Enhancement for Print Project changes-->
+	<xs:complexType name="SignatureformType">
+		<xs:sequence>
+			<xs:element name="FormReqCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FormSendCode" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeneralNotesLineTextType">
+		<xs:sequence>
+			<xs:element name="LineNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="LineText" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeneralNotesType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:GeneralNotesIdentifierType"/>
+			<xs:element name="Subject" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Author" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="EntryDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="LineTexts" type="pd:GeneralNotesLineTextType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeneralNotesIdentifierType">
+		<xs:sequence>
+			<xs:element name="Category" type="xs:string"/>
+			<xs:element name="KeyData" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Exposures">
+		<xs:sequence>
+			<xs:element name="FamilyProtectionCoverageIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FamilyProtectionResidenceLocationNumber" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPersonalExcessAutomobiles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPhysicalDamageVehicles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPrimaryLiabilityVehicles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPrimaryExcessLiabilityVehicles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPrivatePassengerVehicles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfHighPerformanceVehicles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfLicensedDrivers" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfNoLiabilityVehicles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPIPUMOnlyVehicles" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfNoLiabilityHomes" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPersonalExcessHomes" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPrimaryExcessLiabilityHomes" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPrimaryResidences" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPropertyCoverageRisks" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="WindAndHailExclusionLocationIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="NumberOfPhysicalDamageCoverageWatercraft" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPrimaryExcessLiabilityWatercraft" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPrimaryLiabilityWatercraft" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfPersonalExcessWatercraft" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfNoLiabilityCoverageWatercrafts" type="pd:ctInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- TCS >> NextGen Enhancement for Print Project changes-->
+	<xs:complexType name="AdditionalInsuredType">
+		<xs:complexContent>
+			<xs:extension base="pd:InterestedPartyType">
+				<xs:sequence>
+					<xs:element name="PremiumComponents" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="CoverageSection" type="pd:ctString" minOccurs="0"/>
+					<xs:element name="DescriptionOfInterest" type="pd:ctString" minOccurs="0"/>
+					<xs:element name="KindOfInsured" type="xs:string" minOccurs="0"/>
+					<xs:element name="OccupantIndicator" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="PropertyInterest" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="RelativeIndicator" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="LiabilityInterest" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="AssociatedHome" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pd:HomeIdentifierType">
+									<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdditionalInterestType">
+		<xs:complexContent>
+			<xs:extension base="pd:InterestedPartyType">
+				<xs:sequence>
+					<xs:element name="KindOfInsured" type="xs:string" minOccurs="0"/>
+					<xs:element name="PhysicalDamageInterest" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="ExcessLiabilityInterest" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="Vehicle">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pd:VehicleIdentifierType">
+									<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdditionalLocationDetailsType">
+		<xs:sequence>
+			<xs:element name="AltTerritoryCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CityCountyCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ClueReportRequestNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CountyName" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FireDistrictCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FireDistrictReturnCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FringeLocationIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FringeLocationCityCountyCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FringeLocationTerritoryCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FringeLocationPlaceCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FringeLocationZipCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="MunicipalCasualtyTaxRate" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="MunicipalFireTaxRate" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="MunicipalInlandMarineTaxRate" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="FireRecordFactor" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:ctDecimal"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IncorporatedCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="KeyRateFactor" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="LocCheckConfidenceCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="LocCheckRqstDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="LocCheckRqstKey" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="9"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OriginalNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="PlaceCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ProtectedCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RandErrorCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RISTerritoryCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TaxTownCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TaxCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TerritoryCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TicoCityCountyCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TicoPlaceCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WindstormZoneCode" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdditionalStateOrCountryCodeType">
+		<xs:sequence>
+			<xs:element name="StateOrCountryCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="StateOrCountryAbbreviation" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TwoPositionStateOrCountryAbbreviation" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AddressType" abstract="true">
+		<xs:sequence>
+			<xs:element name="Street" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AddressLine2" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="City" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BankVaultIdentifierType">
+		<xs:sequence>
+			<xs:element name="BankVaultNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusinessPartySelectInfoType">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string" minOccurs="0"/>
+			<xs:element name="Date" type="xs:date" minOccurs="0"/>
+			<xs:element name="Time" type="xs:time" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusinessPursuitType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:BusinessPursuitIdentifierType"/>
+			<xs:element name="BusinessPursuitePermanentId" type="xs:integer" minOccurs="0"/>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InsuredName" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="BusnClass" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ClassDesc" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="HomeNumber" type="pd:HomeIdentifierType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessPursuitIdentifierType">
+		<xs:sequence>
+			<xs:element name="BusinessPursuitNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusinessPursuitPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="BusinessPursuitIdentifier" type="pd:BusinessPursuitIdentifierType"/>
+			<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusinessEventDetailType">
+		<xs:sequence>
+			<xs:element name="BusinessEvent">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:BusinessEventType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PolicyInformation" type="pd:PolicyType" minOccurs="0"/>
+			<xs:group ref="pd:TransientNumberInfoGrp" minOccurs="0"/>
+			<xs:element name="NonResidentLicense" type="pd:NonResidentLicenseType" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="CountersigningInfo" type="pd:CountersigningInfoType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ContractInformation" type="pd:ContractInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AgencyInstallmentInformation" type="pd:InstallmentInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="Coverages" type="pd:PolicyCoveragesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PremiumComponents" type="pd:PolicyPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Home" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:HomeType">
+							<xs:attribute name="locationRef" type="xs:int" use="required"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Vehicle" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:VehicleType">
+							<xs:attribute name="locationRef" type="xs:int" use="required"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Watercraft" type="pd:WatercraftType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="RiskLocation" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:choice>
+						<xs:sequence>
+							<xs:element name="USAddress" type="pd:USAddressType"/>
+							<xs:element name="AdditionalDetails" type="pd:AdditionalLocationDetailsType" minOccurs="0"/>
+						</xs:sequence>
+						<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+					</xs:choice>
+					<xs:attribute name="locationKey" type="xs:int" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InterestedParties" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Mortgagee" type="pd:MortgageeType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AdditionalInsured" type="pd:AdditionalInsuredType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="LossPayee" type="pd:LossPayeeType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="AdditionalInterest" type="pd:AdditionalInterestType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="WatercraftAdditionalInterest" type="pd:WatercraftAdditionalInterestType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="PolicyAdditionalInterest" type="pd:PolicyAdditionalInterestType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DNRInformation" type="pd:DNRInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Driver" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:DriverType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Violation" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:ViolationType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VacClass" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:VacClassType">
+							<xs:attribute name="locationRef" type="xs:int" use="optional"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Umbrella" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:UmbrellaType">
+							<xs:attribute name="locationRef" type="xs:int" use="optional"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VacRatingLocation" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:HomeIdentifierType">
+							<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BankVault" type="pd:BankVaultType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VacPriorPolNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="VacRewrite" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="VehicleRegistrant" type="pd:VehicleRegistrantType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PremiumMods" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="HomeMods" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+									<xs:element name="HomePremiumMod" type="pd:HomePremiumModType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="VehicleMods" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="VehicleIdentifier" type="pd:VehicleIdentifierType"/>
+									<xs:element name="VehiclePremiumMod" type="pd:VehiclePremiumModType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="VacMods" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="VacClassIdentifier" type="pd:VacClassIdentifierType"/>
+									<xs:element name="VacPremiumMod" type="pd:VacPremiumModType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Losses" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="HomeLoss" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="pd:HomeLossType"/>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="VehicleLoss" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="pd:VehicleLossType"/>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ExcessLoss" type="pd:ExcessLossType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="FamilyProtectionLoss" type="pd:FamilyProtectionLossType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="HomeLiabilityLoss" type="pd:HomeLiabilityLossType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="LiabilityLoss" type="pd:LiabilityLossType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="ValuableArticleLoss" type="pd:ValuableArticleLossType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="VehicleLiabilityLoss" type="pd:VehicleLiabilityLossType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="WorkCompLoss" type="pd:WorkCompLossType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BusinessPusuits" type="pd:BusinessPursuitType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Tenures" type="pd:TenureType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusinessEventIdentifierType">
+		<xs:sequence>
+			<xs:element name="Date" type="xs:date" minOccurs="0"/>
+			<xs:element name="Time" type="xs:time" minOccurs="0"/>
+			<xs:element name="OccurrenceNumber" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VersionNumber" type="xs:int" minOccurs="0"/>
+			<xs:element name="SourceSystemTransactionId" type="xs:string" minOccurs="0"/>
+			<xs:element name="GroupTransactionId" type="xs:string" minOccurs="0"/>
+			<xs:element name="GroupTransactionSequenceNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="GroupTransactionSize" type="xs:string" minOccurs="0"/>
+			<xs:element name="RecordId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="BusinessEventKindType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="TransactionReasonType">
+		<xs:sequence>
+			<xs:element name="Modules" type="xs:string" minOccurs="0"/>
+			<xs:element name="Reason" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusinessEventType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:BusinessEventIdentifierType" minOccurs="0"/>
+			<xs:element name="EventKind" type="xs:string" minOccurs="0"/>
+			<xs:element name="AddlDriverDiscoveryProcStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="AdditionalDriverDiscoveryReportRequestNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="ApproveDeclineReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="AUIStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="AutoPrefillRequestNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="BlanketConsumerDisclosureAcceptCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="BackoutResendCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="BackoutResendBatchId" type="xs:string" minOccurs="0"/>
+			<xs:element name="CancelReason" type="xs:string" minOccurs="0"/>
+			<xs:element name="CancelEffectiveDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="ClueReportRequestNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ClueReportTrackingCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ClueReviewedCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ClueStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="CountersigningRequiredCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="CreateApp" type="xs:string" minOccurs="0"/>
+			<xs:element name="CreateDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="CreatedBy" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UserId" type="pd:UserIdentifierType"/>
+						<xs:element name="UserName" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DateIssued" type="xs:date" minOccurs="0"/>
+			<xs:element name="DeleteFrozenDriverCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="DepartmentCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Description" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TransactionReasons" type="pd:TransactionReasonType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="EmployeeNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="EmployeeName" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ExcessCoverageRateDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="ExcessCancelReason" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExcessReinstateReason" type="xs:string" minOccurs="0"/>
+			<xs:element name="FairCredit" type="xs:string" minOccurs="0"/>
+			<xs:element name="Issued" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="IssueRequestDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="GeneralNotes" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="HomeLOBHistoryMoYrDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="KBUSResultCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="LastCalcDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="LastCalcTimeStamp" type="xs:time" minOccurs="0"/>
+			<xs:element name="LastUpdateApp" type="xs:string" minOccurs="0"/>
+			<xs:element name="LiabilityMethodCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="MedicalPaymentLimit" type="xs:int" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes -->
+			<xs:element name="VehicleLOBSignatureForms" type="pd:SignatureformType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MarketingProgramInformation" type="pd:MarketingProgramCodeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ResidenceCoverageRateDate" type="xs:date" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes -->
+			<xs:element name="Nonconcurrent" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="NumberOfErrors" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumberOfRenewalTerms" type="xs:string" minOccurs="0"/>
+			<xs:element name="OFACRequestNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="OperatorInitials" type="xs:string" minOccurs="0"/>
+			<xs:element name="OriginalEventKind" type="xs:string" minOccurs="0"/>
+			<xs:element name="OriginalPPVAddDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="PaidFullTermYear1Code" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PaidFullTermYear2Code" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PaidFullTermYear3Code" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PaidFullTermYear4Code" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PaidFullTermYear5Code" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PaidFullTermYearOverrideInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PhoneRequest" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="PolicyOutOfVaultPremium" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="PolicyOutOfVaultTermPremium" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="PrintDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="ProcessingOfficeCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ProducerBranchCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RateDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="RatingRequired" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ReceivedDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="ReinstateReason" type="xs:string" minOccurs="0"/>
+			<xs:element name="RequestedDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="SourceEvent" type="pd:BusinessEventIdentifierType" minOccurs="0"/>
+			<xs:element name="SpecialHandlingCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="StillQuoting" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="SupplementalFormRecvDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="SupplementalInfoCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="TexasMPHybridPolicy" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="TexasRateMethodCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnderInsuredMotoristStackCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="UninsuredMotoristStackCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="UWInitial" type="xs:string" minOccurs="0"/>
+			<xs:element name="UWScoreGin" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="12"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Voided" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ResendCode" type="xs:string" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="Exposures" type="pd:Exposures" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="EcSancLckUnlckDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="EcSancLckUnlckTime" type="xs:time" minOccurs="0"/>
+			<xs:element name="EcSancRiskRequestId" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:attributeGroup name="ChangeIndAttrGrp">
+		<xs:attribute name="changed" type="xs:boolean" use="optional"/>
+	</xs:attributeGroup>
+	<!-- TCS >> NextGen Enhancement for Print Project changes -->
+	<xs:complexType name="MarketingProgramCodeType">
+		<xs:sequence>
+			<xs:element name="MarketingProgramCode" type="pd:ctString" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- TCS >> End of NextGen Enhancement for Print Project changes -->
+	<xs:complexType name="BankVaultType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:BankVaultIdentifierType"/>
+			<xs:element name="Name" type="pd:TwoLineNameType" minOccurs="0"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+				<xs:element name="USAddress" type="pd:USAddressType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="ComplianceResult">
+		<xs:sequence>
+			<xs:element name="SourceSysName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="14"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SubjectKeyName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SubjectSequenceNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ResultTypeCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ResultSequenceNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ResultStateCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VariableTypeCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VariableSequenceNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ValueTypeCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="DateValue" type="xs:date"/>
+				<xs:element name="NumberValue">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="15"/>
+							<!-- <xs:fractionDigits value="4"/> -->
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="StringValue">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="100"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="CoverageDetailType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique symbolic name of a detail. Though usually meaningful to a technical user it is not intended for end user presentation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="pd:DetailValueType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="CoverageIdentifierType">
+		<xs:sequence>
+			<xs:element name="CoverageName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Symbolic name of a coverage component based on business usage (e.g. Structure, Contents, Comp, Collision, Earthquake, etc).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CoverageNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Used as a tie-breaker when a coverage can occur multiple times as sibling elements within a Coverages aggregation. May be persistent as in the case of VAC items.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CoveragePerilDetailType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique symbolic name of a detail. Though usually meaningful to a technical user it is not intended for end user presentation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="pd:DetailValueType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="CoveragePerilType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:PerilIdentifierType"/>
+			<xs:element name="Detail" type="pd:CoveragePerilDetailType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+		<xs:attribute name="coverageKey" type="xs:integer" use="optional"/>
+		<xs:attribute name="parentCoverageRef" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="CoverageType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:CoverageIdentifierType"/>
+			<xs:element name="Detail" type="pd:CoverageDetailType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="CoveragePeril" type="pd:CoveragePerilType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+		<xs:attribute name="coverageKey" type="xs:integer" use="optional"/>
+		<xs:attribute name="parentCoverageRef" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ctBoolean">
+		<xs:simpleContent>
+			<xs:extension base="xs:boolean">
+				<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ctDate">
+		<xs:simpleContent>
+			<xs:extension base="xs:date">
+				<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ctDecimal">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ctInteger">
+		<xs:simpleContent>
+			<xs:extension base="xs:integer">
+				<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ctString">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DetailValueType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="Integer" type="xs:integer"/>
+					<xs:element name="Decimal" type="xs:decimal"/>
+				</xs:choice>
+				<xs:element name="Dimensions" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							(e.g. Currency, Distance, Time, Area,
+							Cardinality)
+						</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Currency"/>
+							<xs:enumeration value="Distance"/>
+							<xs:enumeration value="Count"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Units" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							(e.g. USD, Miles, Hours, Acres, Gross)
+						</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="USD"/>
+							<xs:enumeration value="Feet"/>
+							<xs:enumeration value="Yards"/>
+							<xs:enumeration value="Miles"/>
+							<xs:enumeration value="Meters"/>
+							<xs:enumeration value="Kilometers"/>
+							<xs:enumeration value="Acres"/>
+							<xs:enumeration value="SquareMiles"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:element name="Percentage" type="xs:decimal"/>
+			<xs:element name="Code" type="xs:string"/>
+			<xs:element name="Text" type="xs:string"/>
+			<xs:element name="Boolean" type="xs:boolean"/>
+			<xs:element name="Date" type="xs:date"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="DNRInformationType">
+		<xs:sequence>
+			<xs:element name="AttachmentName" type="xs:string"/>
+			<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DriverIdentifierType">
+		<xs:sequence>
+			<xs:element name="DriverNumber" type="pd:ctInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DriverPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="DriverIdentifier" type="pd:DriverIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DriverVehicleRelationshipType">
+		<xs:sequence>
+			<xs:element name="AssignedVehicle" type="pd:VehicleIdentifierType" minOccurs="0"/>
+			<xs:element name="AssignedRole" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="DriverType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:DriverIdentifierType"/>
+			<xs:element name="DriverPermanentId" type="xs:integer" minOccurs="0"/>
+			<xs:element name="DriverVehicleRelationships" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="DriverVehicleRelationship" type="pd:DriverVehicleRelationshipType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Individual" type="pd:PersonType" minOccurs="0"/>
+			<xs:element name="MemberType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="LicensedDriver"/>
+						<xs:enumeration value="PermitDriver"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Gender" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString"/>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LicenseNumber" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="25"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LicenseState" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="2"/>
+							<xs:maxLength value="14"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdditionalStateOrCountryCode" type="pd:AdditionalStateOrCountryCodeType" minOccurs="0"/>
+			<xs:element name="LicensedSinceDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="VehicleDriven" type="pd:VehicleIdentifierType" minOccurs="0"/>
+			<xs:element name="NonPPVVehicleDriven" type="pd:VehicleIdentifierType" minOccurs="0"/>
+			<xs:element name="DaysDrivenPerWeek" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="7"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MilesDrivenEachWay" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdvancedDefensiveDriver" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BusinessUse" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ClueDriverAddedAfterRequest" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ClueProcStatusCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="2"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ClueReportRequestNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ClueRequestDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="CollegeGrad" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="DefensiveDriver" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="DefensiveDrivingCompletionDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="DriverTraining" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="DriverTrainingCertificationReceivedDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="DriverTrainingCertificationWaivedIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FinancialResponsibility" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="GoodStudentCertificateWaivedInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="GoodStdtCertificationReceivedDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="GoodStudent" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ExcellentDriver" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="MatureDriver" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="MaritalStatus" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="MillitaryInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="MopedLicense" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="MVRProcStatusCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="2"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MVRRequestGin" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="12"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MotorcycleDefensiveDriver" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="MotorcycleSafetyCourseCompletionDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="MotorcycleSafetyCapturedInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="NoHitMVRSurcharge" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PrefillRequestNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="PrefillDriverNumber" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="PrincipalOperator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SchoolOver100Miles" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SDIPPoints" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UndisclosedDriver" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="VehicleRegistrant" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WorkLossExclusion" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WorkLossExclusionFormReceived" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="YouthfulMarriedOperator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="YouthfulPrincipalOperator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="MVRBillBranch" type="xs:string" minOccurs="0"/>
+			<xs:element name="LastMVRDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="DeleteReason" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="ExcessLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FamilyProtectionLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType">
+				<xs:sequence>
+					<xs:element name="AssociatedHome" type="pd:HomeIdentifierType" minOccurs="0"/>
+					<xs:element name="ChargeableLoss" type="pd:ctBoolean" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FieldType">
+		<xs:sequence>
+			<xs:element name="FieldName" type="xs:string"/>
+			<xs:element name="DatabaseValue" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="FixedPolicyInfoGrp">
+		<xs:sequence>
+			<xs:element name="DateHoldApplied" type="xs:date" minOccurs="0"/>
+			<xs:element name="ElectronicConversion" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ElectronicRewritePolicyExtensionNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="ManualConversion" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="OfacHold" type="xs:boolean" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="ManualRewrite" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="ElectRewrite" type="xs:boolean" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="HomeCoveragesType">
+		<xs:sequence>
+			<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+			<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+			<xs:element name="Peril" type="pd:PerilType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HomeIdentifierType">
+		<xs:sequence>
+			<xs:element name="HomeNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HomeLiabilityLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="HomeLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType">
+				<xs:sequence>
+					<xs:element name="AssociatedHome" type="pd:HomeIdentifierType" minOccurs="0"/>
+					<xs:element name="ChargeableLoss" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="TypePropertyCode" type="pd:ctString" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="HomePremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HomeType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:HomeIdentifierType"/>
+			<xs:element name="HomePermanentId" type="xs:integer" minOccurs="0"/>
+			<xs:element name="HomeKind" type="xs:string" minOccurs="0"/>
+			<xs:element name="Location" type="pd:LocationIdentifierType" minOccurs="0"/>
+			<xs:element name="Coverages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Perils" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Peril" type="pd:PerilType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AddlResBussPursuits" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="AgricultureBuildingAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="AdjustedAppraisalAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="AlternateTerritoryApplies" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="AppraisalAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="AnimalCollision" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="AutomaticWildfireSuppressionInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BackupGenerator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BarrierIsland" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BcegsCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="BroadFormPerpetualInsuranceAmount" type="pd:ctInteger" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="BrushTerrInd" type="pd:ctBoolean" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="BuildingCodeComplianceInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BuildingSecutiryProtectionInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BuildingFireProtectionInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BurglarAlarmType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="BurglarAlarmInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="BurglarAlarmCertificateReceived" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="CAHIPolicyForm" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CAHIWritingCompany" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CAHIH05Indicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="CAHIConversionIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="CAHIPolicyNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CAHIPremium" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ChubbApprovedShutters" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="CityLimitsCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ClueProcStatusCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="2"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ConstructionCode" type="pd:ctString" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="ConstructionCodepct" type="pd:ctDecimal" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="ConstructionRenovation" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Deductible" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="DefensibleSpcCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="DeleteExcl3PIP" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="DistanceFromBrushCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="DistanceFromMajorBodyOfWaterNumber" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="DistanceFromMajorBodyOfWaterThresholdNumber" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="DistanceFromWaterCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="DistanceToFault" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="DistanceToFaultOverride" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="DistanceToUnmanagedVegatation" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="DownTierCounter" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="DownTierCycleNo" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="DownTieringStartingTibusRatingGroup" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="EarthquakeRateClassCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="EarthquakeRateClassOverrideInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ElectricalSystemYearRestored" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="ExcessOriginalLiabilityLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="ExteriorAttachmentCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ExteriorFloorCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ExteriorFloorClassACode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FacadeRepaintedYear" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="Farming" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FarmEmpl" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FarmersLiability" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FarmersLiabilityPrem" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="FireAndECPerpetualInsuranceAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="FireAlarmType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FireAlarmInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FireAlarmCertificationReceived" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FireHydrantWithin1000FeetInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FireResistiveInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FireStationWithin5MilesInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FlameResistiveVentCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FloridaBuildingCodeWindSpeed" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FloridaBCEquivalentRoof" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FormType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FoundationType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="FullTimeCaretaker" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="FrameConstruction" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="GableBracedRoof" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="GasLeakDetector" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="GatedCommunity" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="GatedCommunityPatrol" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="GatedResidence" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="HeatingSystemYearRestored" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="HighestTransientBusnPrstId" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestPermanentBusnPrstId" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighPropensityToBurnAreaDistance" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="HighVelocityHurricaneZone" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="HomeContentsOriginalAddDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="HomeownersAssociationMember" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="HomeSignatureForms" type="pd:SignatureformType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="HomeVehicleCredit" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="HomeVehiclePolicyNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="InternalPressureDevice" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="IsCoastalCounty" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IsFiremanFund" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IsTownHouse" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IsGrandfatheredCoastalCounty" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="InclDmgPropOthers" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IsoBcegsCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="KBUSCanBeApprovedThresholdCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="KBUSCanBeApprovedThresholdReasonCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="KBUSResultCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="LegalAddress1" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="LegalAddress2" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="LightningProtection" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LocationCapacityZoneIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LocationCheckModifiedIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LossAssmtLmt" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="LossFreeCreditInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LocationCheckRequired" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LocationCapacityZoneOverrideIndicator" type="pd:ctString" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="LoyalCustCreditInd" type="pd:ctBoolean" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="MaintenanceContract" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="MajorBodyOfWaterWithinThresholdInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ManualWildfireSuppressionInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="MasonaryConstruction" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="MunicipalTaxExemptInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ModifiedMercalliIntensity" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ModifiedMercalliIntensityOverride" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="MortgageeIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="NumberOfMortgages" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NumberOfAcres" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfAnimals" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfRentalUnits" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfStories" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfFamilies" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfUnits" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="OfficeOccAtResidency" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="OffPremisesTheftExclusionInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="OpeningProtectionDevice" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="OriginalLiabilityLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="OriginalResidenceTerritory" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="OriginalStructureDeductibleAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="OriginalTibusRatingGroupPhaseCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="OriginalTibusRatingGroupNo" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="PersonalInjury" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PlatinumProductInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PlumbingYearRestored" type="pd:ctInteger" minOccurs="0"/>
+			<!--TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="PreferredCustomerCrInd" type="pd:ctBoolean" minOccurs="0"/>
+			<!--TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="PriorHomeCancReinstCode" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ProtectionClass" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="PricingScore" type="pd:PricingScoreType" minOccurs="0"/>
+			<xs:element name="PriorCarrier" type="pd:PriorCarrierType" minOccurs="0"/>
+			<xs:element name="PriorPolNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="PropensityToBurn" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RenovationSurcharge" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="RenovationSurchargeTypeCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RentedToOthers" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ResidentialSprinklerSystem" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ResidenceTerritory" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ResCommntyPropClsExcl" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ReinfConcRoofDeck" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ResidenceLatitude" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="ResidenceLongitude" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="Rewrite" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Retrofitted" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RetrofittedYear" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="RoofClassType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RltdPolicyRiskSizeAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="RltdPolicyRiskTypeCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RltdPolicyRiskSeqNo" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="RoofCoveringType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RoofDeckAttachment" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RoofDeckType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RoofShape" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RoofingSystemYearRestored" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="RoofWallConnectionType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SecondaryWaterResistance" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="SeismicShutOffValve" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="SignalContinuity" type="pd:ctBoolean" minOccurs="0"/>
+			<!--TCS >> NextGen Enhancement for Print Project changes-->
+			<!--TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="SoilLiquefactionType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SoilLiquefactionTypeOverride" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="SpecialFormPerpetualInsuranceAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="SpWaterLeakDetectionSystemCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SpecialTheftIndicator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SprinklerType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="StormShutters" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SuburbanCreditInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="TemperatureMonitorSuperiorProtection" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="TemperatureMonitorCityHome" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="TerrainExposure" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TexasIOC1" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TexasNumberOfFamilies" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="TexasFireHydrantDistanceCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TexasResidenceTerritory" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TotalLocationLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="TotalSquareFeet" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="TheftDeductible" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="TwentyFourHourSecurity" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="TypeOfConstruction" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TypeOfOccupancy" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TypeOfOffice" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="UnitFloor" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UnoccupiedVacationHome" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="UnprotectedCredit" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="UsageCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VacantHomeSurcharge" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="VeryHighPropensityToBurnAreaDistance" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="WaterFlowAlarm" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WaterLeakCertificateRecievedInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WaterLeakageDetection" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WaterLeakageDetectionAlarm" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WildfireDeductiblePercent" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="WildfireSiteHazardCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireSiteHazardOverrideIndicator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireSiteConfidenceCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireZoneHazardCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireZoneHazardOverrideIndicator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireNextHighZoneDistance" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="WildfireNextHighZoneOverrideIndicator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireNextHighZoneConfidenceCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireOrderDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="ShelterInPlaceCommunityNameCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ShelterInPlaceCommunityNameOverrideIndicator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WildfireSuppresionSystemCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WindBorneDebrisRegion" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindHailDeductibleCapAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="WindDeductible" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="WindHailDeductibleZoneCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WindMitigationCategory" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WindPool" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindReductionRoofCovering" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindReductionRoofDeckAttachment" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindReductionRoofShapeHip" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindReductionRoofShapeGableBraced" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindReductionRoofToWallConnection" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindStormReductionCreditRoofwallVerifInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="Within2500FeetOceanHarbourBay" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="WindMitigationCertificateReceived" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="YearBuilt" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:totalDigits value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="YearRenovated" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:totalDigits value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="YearRoofInstalled" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:totalDigits value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="HomePremiumModType">
+		<xs:sequence>
+			<xs:element name="AdjacentExposuresPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="ConditionalReplCost" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ConsentToRateCreditAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="ConsentToRatePercent" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="ConsentToRateSurchargeAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="ConstructionFeaturesPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="EarthquakeOverrideDeductiblePct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="PriorEarthquakeDeductiblePct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="ExpenseModificationPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="LossExperiencePct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="OccupancyPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="OtherSpecifiedCharacteristicsPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="ProtectiveDevicesSystemsPrecautionsPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="RemoveExtReplCost" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="TotalUWModPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="TypeOfHeatingPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="UWJudgementPct" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="HighLimitLiabilityAmount" type="pd:ctInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InsuredIdentifierType">
+		<xs:sequence>
+			<xs:element name="InsuredNumber" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InsuredType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:InsuredIdentifierType" minOccurs="0"/>
+			<xs:element name="Name" type="pd:TwoLineNameType" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="USAddress" type="pd:USAddressType"/>
+				<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+			</xs:choice>
+			<xs:element name="PhoneNumber" type="pd:PhoneNumberType" minOccurs="0"/>
+			<xs:element name="PrimaryInsured" type="pd:PersonType" minOccurs="0"/>
+			<xs:element name="CoInsured" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:PersonType">
+							<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ProducerIdentifier" type="pd:ProducerIdentifierType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Could be used when determining region when building a new insured</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CustomerSegment" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="IsVip" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="IsSignature" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="IsNone" type="xs:boolean" minOccurs="0"/>
+						</xs:choice>
+						<xs:element name="CustomerSegmentCode" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CustomerSegmentGroupCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="CustomerSegmentSourceCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="FamilyOfficeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="HighestPolSuffix" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InterestedPartyIdentifierType">
+		<xs:sequence>
+			<xs:element name="InterestedPartyNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InterestedPartyType" abstract="true">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:InterestedPartyIdentifierType"/>
+			<xs:element name="Name" type="pd:TwoLineNameType" minOccurs="0"/>
+			<xs:element name="KindOfName" type="xs:string" minOccurs="0"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+				<xs:element name="USAddress" type="pd:USAddressType"/>
+			</xs:choice>
+			<xs:element name="PolicyCopyInd" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="InternationalAddressType">
+		<xs:complexContent>
+			<xs:extension base="pd:AddressType">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:element name="Province">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:restriction base="pd:ctString">
+										<xs:minLength value="2"/>
+										<xs:maxLength value="14"/>
+									</xs:restriction>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="State">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:restriction base="pd:ctString">
+										<xs:minLength value="2"/>
+										<xs:maxLength value="14"/>
+									</xs:restriction>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+					<xs:element name="County" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="40"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Country" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="2"/>
+									<xs:maxLength value="14"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="PostalCode" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="9"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="AdditionalStateOrCountryCode" type="pd:AdditionalStateOrCountryCodeType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="IssuedPolicyType">
+		<xs:sequence>
+			<xs:element name="StateCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="3"/>
+						<xs:maxLength value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PostIssueError" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="DnrReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="OriginalInceptionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="RenewalCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LiabilityLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType">
+				<xs:sequence>
+					<xs:element name="DriverResponsible" type="pd:DriverIdentifierType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LocationIdentifierType">
+		<xs:sequence>
+			<xs:element name="LocationNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:LocationIdentifierType"/>
+			<xs:element name="USAddress" type="pd:USAddressType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LossIdentifierType">
+		<xs:sequence>
+			<xs:element name="LossNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LossPayeeType">
+		<xs:complexContent>
+			<xs:extension base="pd:InterestedPartyType">
+				<xs:sequence>
+					<xs:element name="LoanNumber" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="40"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="AssociatedHome" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pd:HomeIdentifierType">
+									<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Vehicle" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pd:VehicleIdentifierType">
+									<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PolicyAdditionalInterestType">
+		<xs:complexContent>
+			<xs:extension base="pd:InterestedPartyType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LossPaymentType">
+		<xs:sequence>
+			<xs:element name="PaidAmount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999999999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Status" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CauseOfLossCode" type="pd:ctString"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="LossPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="LossIdentifier" type="pd:LossIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LossType" abstract="true">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:LossIdentifierType"/>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Catastrophe" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="CauseOfLossCode" type="pd:ctString"/>
+			<xs:element name="ChubbLoss" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ClueClaimSeqNo" type="pd:ctInteger"/>
+			<xs:element name="ClueReportRequestNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="9"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Date" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="Description" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FutureLoss" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LocationCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LossKind" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PaidDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="PaidAmount" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999999999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Payment" type="pd:LossPaymentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="RatingCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SourceOfLossCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SubrogationReceived" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ThresholdPaidDateUpdated" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ThresholdLossPaidDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="LossSequenceNumber" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="MortgageeType">
+		<xs:complexContent>
+			<xs:extension base="pd:InterestedPartyType">
+				<xs:sequence>
+					<xs:element name="LoanNumber" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="20"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="BillPayor" type="pd:ctBoolean" minOccurs="0"/>
+					<!-- TCS >> NextGen Enhancement for Print project changes-->
+					<xs:element name="InsuredName" type="pd:TwoLineNameType" minOccurs="0"/>
+					<!-- TCS >> NextGen Enhancement for Print project changes-->
+					<xs:element name="AssociatedHome" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pd:HomeIdentifierType">
+									<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NonResidentLicenseIdentifierType">
+		<xs:sequence>
+			<xs:element name="StateCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NonResidentLicenseType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:NonResidentLicenseIdentifierType"/>
+			<xs:element name="LicenseType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="LicenseNumber" type="pd:ctString" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="CountersigningRequired" type="pd:ctString" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<!-- TCS >> NextGen Enhancement for Print Project changes-->
+	<xs:complexType name="CountersigningInfoIdentifierType">
+		<xs:sequence>
+			<xs:element name="StateCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountersigningProducerIdentType">
+		<xs:sequence>
+			<xs:element name="ProducerNumber" type="xs:string"/>
+			<xs:element name="SubProducerNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountersigningPremiumType">
+		<xs:sequence>
+			<xs:element name="Homes" type="pd:ctDecimal"/>
+			<xs:element name="Vehicles" type="pd:ctDecimal"/>
+			<xs:element name="Watercrafts" type="pd:ctDecimal"/>
+			<xs:element name="WorkersComp" type="pd:ctDecimal"/>
+			<xs:element name="Excess" type="pd:ctDecimal"/>
+			<xs:element name="VAC" type="pd:ctDecimal"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommissionAmountType">
+		<xs:sequence>
+			<xs:element name="Homes" type="pd:ctDecimal"/>
+			<xs:element name="Vehicles" type="pd:ctDecimal"/>
+			<xs:element name="Watercrafts" type="pd:ctDecimal"/>
+			<xs:element name="WorkersComp" type="pd:ctDecimal"/>
+			<xs:element name="Excess" type="pd:ctDecimal"/>
+			<xs:element name="VAC" type="pd:ctDecimal"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountersigningInfoType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:CountersigningInfoIdentifierType"/>
+			<xs:element name="AgentCommissionPercent" type="pd:ctDecimal"/>
+			<xs:element name="AgentFlatFeeIndicator" type="pd:ctBoolean"/>
+			<xs:element name="CountersigningProducerIdent" type="pd:CountersigningProducerIdentType"/>
+			<xs:element name="CountersigningPremium" type="pd:CountersigningPremiumType"/>
+			<xs:element name="CommissionAmount" type="pd:CommissionAmountType"/>
+			<xs:element name="EmployeeCountersigning" type="pd:ctBoolean"/>
+			<xs:element name="AgentLiabilityCommisionPercent" type="pd:ctDecimal"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="ContractInformationIdentifierType">
+		<xs:sequence>
+			<xs:element name="ContractNumber" type="pd:ctInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ParagraphInformationIdentifierType">
+		<xs:sequence>
+			<xs:element name="ParagraphSeqNo" type="pd:ctInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ParagraphInformationType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:ParagraphInformationIdentifierType"/>
+			<xs:element name="ParagraphNo" type="pd:ctInteger"/>
+			<xs:element name="ParagraphVersionNo" type="pd:ctInteger"/>
+			<xs:element name="Text" type="pd:TextType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="TextIdentifierType">
+		<xs:sequence>
+			<xs:element name="TextNo" type="pd:ctInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TextType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:TextIdentifierType"/>
+			<xs:element name="Value" type="pd:ctString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContractInformationType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:ContractInformationIdentifierType"/>
+			<xs:element name="ParagraphInformation" type="pd:ParagraphInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FormsManagementContractName" type="pd:ctString"/>
+			<xs:element name="FormsManagementContractEffDate" type="pd:ctDate"/>
+			<xs:element name="HighestParagraphSeqNo" type="pd:ctInteger"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+		<!-- TCS >> NextGen Enhancement for Print Project changes-->
+	</xs:complexType>
+	<xs:complexType name="InstallmentInformationType">
+		<xs:sequence>
+			<xs:element name="Installment" type="pd:InstallmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="InstallmentPaymentCode" type="xs:string"/>
+			<xs:element name="InstallmentStateTax" type="xs:decimal"/>
+			<xs:element name="InstallmentStateSurcharge" type="xs:decimal"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+		<!-- TCS >> NextGen Enhancement for Print Project changes-->
+	</xs:complexType>
+	<xs:complexType name="InstallmentType">
+		<xs:sequence>
+			<xs:element name="DueDate" type="xs:date"/>
+			<xs:element name="Premium" type="xs:decimal"/>
+			<xs:element name="Commission" type="xs:decimal"/>
+			<xs:element name="Fee" type="xs:decimal"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+		<!-- TCS >> NextGen Enhancement for Print Project changes-->
+	</xs:complexType>
+	<xs:complexType name="PerilDetailType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique symbolic name of a detail. Though usually meaningful to a technical user it is not intended for end user presentation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="pd:DetailValueType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="PerilIdentifierType">
+		<xs:sequence>
+			<xs:element name="PerilCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PerilType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:PerilIdentifierType"/>
+			<xs:element name="PerilName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Detail" type="pd:PerilDetailType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+		<xs:attribute name="coverageKey" type="xs:integer" use="optional"/>
+		<xs:attribute name="parentCoverageRef" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	<xs:group name="PermanentNumberInfoGrp">
+		<xs:sequence>
+			<xs:element name="HighestPermanentHomeId" type="pd:HomeIdentifierType"/>
+			<xs:element name="HighestPermanentVehicleId" type="pd:VehicleIdentifierType"/>
+			<xs:element name="HighestPermanentWatercraftId" type="pd:WatercraftIdentifierType"/>
+			<xs:element name="HighestPermanentDriverId" type="pd:DriverIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="PersonType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="OriginalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="Prefix" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="First" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="16"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Middle" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="11"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Last" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="40"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Suffix" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BirthDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="Occupation" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OccupationDetail" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OFACRequestDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="SSN" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="9"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RequestForSSNDeclined" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="SSNAvailable" type="pd:ctBoolean" minOccurs="0"/>
+			<!-- Added by Kiran for Client Phase 2 project -->
+			<xs:element name="BusinessPartySelectInfo" type="pd:BusinessPartySelectInfoType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PhoneNumberType">
+		<xs:sequence>
+			<xs:element name="DialingPrefix" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AreaCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Exchange">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Number">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Extension" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FullPhoneNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="PolicySegmentsType">
+		<xs:sequence>
+			<xs:element name="SegmentType" type="pd:SegmentType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PolicyCoveragesType">
+		<xs:sequence>
+			<xs:element name="AttachmentName" type="xs:string" minOccurs="0"/>
+			<xs:element name="GeographicQualifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="SubjectQualifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PolicyIdentifierType">
+		<xs:sequence>
+			<xs:element name="PolicyNumber" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PolicyPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="AttachmentName" type="xs:string" minOccurs="0"/>
+			<xs:element name="GeographicQualifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="SubjectQualifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PolicyType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:PolicyIdentifierType" minOccurs="0"/>
+			<xs:element name="EffectiveDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="ExpirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="UnderwritingInformation" type="pd:UWInfoType" minOccurs="0"/>
+			<xs:group ref="pd:VariablePolicyInfoGrp"/>
+			<xs:group ref="pd:FixedPolicyInfoGrp"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PremiumComponentIdentifierType">
+		<xs:sequence>
+			<xs:element name="ComponentName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Symbolic name of a pricing component based on business usage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ComponentNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Used as a tie-breaker when a pricing component can appear more than once in the same aggregation.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PremiumComponentType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:PremiumComponentIdentifierType"/>
+			<xs:element name="Detail" type="pd:PremiumDetailType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:attributeGroup name="PremiumDetailAdditionalInfoAttrGrp">
+		<xs:attribute name="state" type="xs:string" use="optional"/>
+		<xs:attribute name="riskState" type="xs:string" use="optional"/>
+		<xs:attribute name="feeTypeCode" type="xs:string" use="optional"/>
+		<xs:attribute name="feeName" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+	<xs:complexType name="PremiumDetailType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique symbolic name of a detail. Though usually meaningful to a technical user it is not intended for end user presentation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="pd:DetailValueType"/>
+			<xs:element name="Hint" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:PremiumDetailAdditionalInfoAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="PricingScoreType">
+		<xs:sequence>
+			<xs:element name="TierGrpOvrrd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ScoreNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ScoreFactor" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctDecimal">
+							<xs:totalDigits value="7"/>
+							<!-- <xs:fractionDigits value="5"/> -->
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ApplyDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="InsdAssocNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GenCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GeneratedRiskEvaluationGroupNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GroupGenCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IBSBand" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="IBSScore" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ImpactCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="2"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NewBusn" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="NewBusnRateDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="OrderDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="NeutralTierGrpNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ReasonCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="3"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RequestGin" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="12"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RiskEvaluationGroupGeneratedCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RiskEvaluationGroupOverrideInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PrnlReasonCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="3"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PrnlRequestNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="12"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="StartTierGrpNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TierGrpCapStatCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="3"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TierGrpCapYears" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TierGrpScoreGin" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="12"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TibusRatingGroupPhaseCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="2"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UsedRiskEvaluationGroupNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UsedTierGrpNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GenTierGrpNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FrozenTerm1TierFactor" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctDecimal">
+							<xs:totalDigits value="7"/>
+							<!-- <xs:fractionDigits value="5"/> -->
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FrozenTerm2TierFactor" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctDecimal">
+							<xs:totalDigits value="7"/>
+							<!-- <xs:fractionDigits value="5"/> -->
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FrozenTerm3TierFactor" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctDecimal">
+							<xs:totalDigits value="7"/>
+							<!-- <xs:fractionDigits value="5"/> -->
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FrozenImpactCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="2"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FrozenBinNo" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="-999"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreditTypeCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PriorCarrierType">
+		<xs:sequence>
+			<xs:element name="BodilyInjuryLimitsCategory" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CompetitorCompanyCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CompetitorCompanyName" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CoverageLapseCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CoverageLapseReason" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="OtherCompetitorName" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="YearsWithPriorCarrier" type="pd:ctInteger" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:attributeGroup name="ProcessAttrGrp">
+		<xs:attribute name="addDate" type="xs:date" use="optional"/>
+		<xs:attribute name="addOcc" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:maxInclusive value="999"/>
+					<xs:minInclusive value="0"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="cancelReason" type="xs:string" use="optional"/>
+		<xs:attribute name="cancelEffDate" type="xs:date" use="optional"/>
+		<xs:attribute name="cancelEffOcc" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:minInclusive value="0"/>
+					<xs:maxInclusive value="999"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="chgDate" type="xs:date" use="optional"/>
+		<xs:attribute name="chgOcc" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:minInclusive value="0"/>
+					<xs:maxInclusive value="999"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="busStatus" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Added"/>
+					<xs:enumeration value="Changed"/>
+					<xs:enumeration value="Deleted"/>
+					<xs:enumeration value="DeletedPrior"/>
+					<xs:enumeration value="Canceled"/>
+					<xs:enumeration value="CanceledPrior"/>
+					<xs:enumeration value="Reinstated"/>
+					<xs:enumeration value="Active"/>
+					<xs:enumeration value="Inactive"/>
+					<xs:enumeration value="Nonrenewed"/>
+					<xs:enumeration value="Undefined"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="dateSuspendedFrom" type="xs:date" use="optional"/>
+		<xs:attribute name="dateSuspendedTo" type="xs:date" use="optional"/>
+		<xs:attribute name="dnrReason" type="xs:string" use="optional"/>
+		<xs:attribute name="effectiveDate" type="xs:date" use="optional"/>
+		<xs:attribute name="expirationDate" type="xs:date" use="optional"/>
+		<xs:attribute name="reinstateReason" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+	<xs:complexType name="ProducerIdentifierType">
+		<xs:sequence>
+			<xs:element name="ProducerNumber" type="xs:string"/>
+			<xs:element name="SubProducerNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="EffectiveDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProducerType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:ProducerIdentifierType"/>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="USAddress" type="pd:USAddressType"/>
+				<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+			</xs:choice>
+			<xs:element name="PhoneNumber" type="pd:PhoneNumberType" minOccurs="0"/>
+			<xs:element name="ContractKind" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="6"/>
+						<xs:enumeration value="Agent"/>
+						<xs:enumeration value="Broker"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AgentBranchCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ProfileBranchCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ZoneCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PersLinesProcOffCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SpecialAgencyIdCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="WritingCompanies" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="WritingCompany" type="pd:WritingCompanyType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ChubbCustCtrAgent" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="TwelvePayAgent" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ExpressMail" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="NinetyDaysIssue" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="StateCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SegmentType">
+		<xs:sequence>
+			<xs:element name="SegmentName" type="xs:string"/>
+			<xs:element name="DatabaseFields" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Field" type="pd:FieldType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Segments" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Segment" type="pd:SegmentType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TenureType">
+		<xs:sequence>
+			<xs:element name="InsuredNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ActiveCoverageInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LOBName" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="OldestPolicyEffectiveDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="OldestPolicyNumber" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="TransientInterestedPartyNoGrp">
+		<xs:sequence>
+			<xs:element name="SubjectId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestPartyId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="TransientNumberInfoGrp">
+		<xs:sequence>
+			<xs:element name="HighestTransientHomeId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestTransientVehicleId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestTransientViolationId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestTransientWatercraftId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestTransientDriverId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestTransientHshldMemId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HighestTransientHomePartyId" type="pd:TransientInterestedPartyNoGrp" maxOccurs="unbounded"/>
+			<xs:element name="HighestTransientMortgageeId" type="pd:TransientInterestedPartyNoGrp" maxOccurs="unbounded"/>
+			<xs:element name="HighestTransientVehiclePartyId" type="pd:TransientInterestedPartyNoGrp" maxOccurs="unbounded"/>
+			<xs:element name="HighestTransientBankVaultId" type="pd:BankVaultIdentifierType" maxOccurs="unbounded"/>
+			<xs:element name="HighestTransientWatercraftPartyId" type="pd:TransientInterestedPartyNoGrp" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="TermType">
+		<xs:sequence>
+			<xs:element name="InceptionDate" type="xs:date"/>
+			<xs:element name="ExpirationDate" type="xs:date"/>
+			<xs:element name="NumberOfDaysInTerm" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="TermsAndConditionsState" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="2"/>
+							<xs:maxLength value="14"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TwoLineNameType">
+		<xs:sequence>
+			<xs:element name="NameLine1" type="xs:string" minOccurs="0"/>
+			<xs:element name="NameLine2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="OriginalNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="UnderwriterApproveDeclineReasonsType">
+		<xs:sequence>
+			<xs:element name="ApproveDeclineReason" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="180"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CancelDoNotRenewReasonDescription" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UWInfoType">
+		<xs:sequence>
+			<xs:element name="ClientType" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsIntlDriverLicense" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ContinuousCoverageMonths" type="xs:int" minOccurs="0"/>
+			<xs:element name="IsParentChubbPolicy" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="IsPriorInsuranceLapse" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="PriorInsuranceType" type="xs:string" minOccurs="0"/>
+			<xs:element name="PriorLimits" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsVehicleModified" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="USAddressType">
+		<xs:complexContent>
+			<xs:extension base="pd:AddressType">
+				<xs:sequence>
+					<xs:element name="County" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="40"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="State" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="2"/>
+									<xs:maxLength value="14"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ZipCode" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="5"/>
+									<xs:maxLength value="9"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Country" fixed="US" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="3"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="AdditionalStateOrCountryCode" type="pd:AdditionalStateOrCountryCodeType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="UserIdentifierType">
+		<xs:sequence>
+			<xs:element name="WebUserId" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="LegacyUserId" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VacClassIdentifierType">
+		<xs:sequence>
+			<xs:element name="ClassName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdditionalUnderlyingUnitIdentifierType">
+		<xs:sequence>
+			<xs:element name="unitId" type="xs:string"/>
+			<xs:element name="UnderlyingCompanyPolicyNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="UnderlyingCompanyName" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdditionalUnderlyingAutoType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:AdditionalUnderlyingUnitIdentifierType"/>
+			<xs:element name="SingleLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="BIPerPersonLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="BIPerOccuranceLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="PropertyDamageLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMSingleLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMPerPersonLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMPerOccuranceLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMPropertyDamageLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="Make" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Model" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Year" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RecreationalVehicle" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="CollectorCar" type="pd:ctBoolean" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="AdditionalUnderlyingHomeType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:AdditionalUnderlyingUnitIdentifierType"/>
+			<xs:element name="Limit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfFamiliesDescription" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="TypeOfCoverage" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="AptUnit" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="AdditionalUnderlyingFireType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:AdditionalUnderlyingUnitIdentifierType"/>
+			<xs:element name="Limit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfFamiliesDescription" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="AdditionalUnderlyingWatercraftType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:AdditionalUnderlyingUnitIdentifierType"/>
+			<xs:element name="LiabilityLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="Year" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Model" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Type" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Length" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="HorsePower" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Value" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="PowerType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="MaxSpeed" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="AdditionalUnderlyingCorporateCarType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:AdditionalUnderlyingUnitIdentifierType"/>
+			<xs:element name="SingleLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="BIPerPersonLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="BIPerOccuranceLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="PropertyDamageLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMSingleLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMPerPersonLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMPerOccuranceLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UMPropertyDamageLimit" type="pd:ctInteger" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="AdditionalUnderlyingBusinessPursuitsType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:AdditionalUnderlyingUnitIdentifierType"/>
+			<xs:element name="BusinessPursuitInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IncidentalBusinessLiability" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IncidentalOfficeOccupancy" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LimitedLiabilityCorporation" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LiabilityLimit" type="pd:ctInteger" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="UmbrellaType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:UmbrellaIdentifierType"/>
+			<xs:element name="IsFiremanFund" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="UmbrellaLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="UmbrellaUMLimit" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="AdditionalUnderlyingAuto" type="pd:AdditionalUnderlyingAutoType" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalUnderlyingHome" type="pd:AdditionalUnderlyingHomeType" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalUnderlyingFire" type="pd:AdditionalUnderlyingFireType" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalUnderlyingWatercraft" type="pd:AdditionalUnderlyingWatercraftType" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalUnderlyingCorporateCar" type="pd:AdditionalUnderlyingCorporateCarType" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalUnderlyingBusinessPursuits" type="pd:AdditionalUnderlyingBusinessPursuitsType" maxOccurs="unbounded"/>
+			<xs:element name="Coverages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PlatinumProductInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="UmbrellaIdentifierType">
+		<xs:sequence>
+			<xs:element name="StateCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VacClassType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:VacClassIdentifierType"/>
+			<xs:element name="BlanketTotal" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="CAHIWritingCompany" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CAHIConversionIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="CAHIPolicyNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="CAHIPremium" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ItemTotalComputed" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="ItemTotalEntered" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfItems" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="Coverages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ProtectionCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Construction" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="NumberOfFamilies" type="pd:ctInteger" minOccurs="0"/>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="InVaultTotal" type="pd:ctInteger" minOccurs="0"/>
+					<xs:element name="HomeSafe" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="ContractualInflationPercentage" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctDecimal">
+									<xs:totalDigits value="5"/>
+									<!-- <xs:fractionDigits value="3"/> -->
+									<xs:maxExclusive value="100"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="InflationPercentage">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctDecimal">
+									<xs:totalDigits value="5"/>
+									<!-- <xs:fractionDigits value="3"/> -->
+									<xs:minInclusive value="0"/>
+									<xs:maxExclusive value="100"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:sequence>
+					<!--TCS >> NextGen Enhancement for Print project changes -->
+					<xs:element name="Jewelinflationind" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="AddJpmpInd" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="TotalItemizedAmount" type="pd:ctInteger" minOccurs="0"/>
+					<xs:element name="TotalInValutJewelAmount" type="pd:ctInteger" minOccurs="0"/>
+					<xs:element name="TotalOutOfVaultJewelAmount" type="pd:ctInteger" minOccurs="0"/>
+					<!-- TCS >> NextGen Enhancement for Print Project changes-->
+					<xs:element name="ExcludeEarthquake" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="EarthquakeDedPercent" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctDecimal">
+									<xs:totalDigits value="5"/>
+									<!-- <xs:fractionDigits value="3"/> -->
+									<xs:minInclusive value="0"/>
+									<xs:maxExclusive value="100"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+			<!-- TCS : Added Vac Item and Vac Sub Class under VAC Class  for Out Of Vault Defect 2980 in ST  -->
+			<xs:element name="VacSubclass" type="pd:VacSubclassType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VacItem" type="pd:VacItemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:group name="VacItemDetailGrp">
+		<xs:sequence>
+			<xs:element name="VacSubclass" type="pd:VacSubclassType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VacItem" type="pd:VacItemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="VacItemIdentifierType">
+		<xs:sequence>
+			<xs:element name="ClassName" type="xs:string"/>
+			<xs:element name="SubclassLetter" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ItemNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="99999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VacItemType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:VacItemIdentifierType"/>
+			<xs:element name="Description" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ItemAmount" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999999999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="KeptInVault" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PreInflationItemAmount" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999999999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RemoveFromVaultDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="ReturnToVaultDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PriorRemoveFromVaultDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="PriorReturnToVaultDate" type="pd:ctDate" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="ValuableArticleLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VacPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="VacClassIdentifier" type="pd:VacClassIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VacPremiumModType">
+		<xs:sequence>
+			<xs:element name="ConsentToRatePercent" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="ConsentToRateInVaultFactor" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="VacJewlryPremModPlan" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="AgeHabitsResponsibilityMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="AlarmWith24HrBackupPct" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="AlarmWithHomeSafePct" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="AwayFromPremisesExposurePct" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="CommunicationBackupMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="Condo24HrSecurityMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="CondoCoopRentalSecurityPct" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="CondoFullTimeInEmplMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="CondoFullTimeOutEmplMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="GatedCommunityPatrolMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="HomeSafePct" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="JewelryInHotelSafeMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="JewelryUsageMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="JewelryVisibleWhileTravelMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="LossLimitationsMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="OffPremiseExposureOther" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="OffPremisesProtectionMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="OnPremisesProtectionMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="PremisesLocationMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="PremisesTypeMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="PublicExposureMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="Residence24HrSecurityMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="ResidenceFullTimeInEmplMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="ResidenceFullTimeOutEmplMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="ResidenceGatedCommunityMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="ResidenceSecurityMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="ScheduleValuesDistributionMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="ScheduleOther" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="SecurityPersonalProtectionMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="SignalContinuityMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="SingleItemHalfScheduleMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="SingleItemHalfThresholdMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="TotalJewlryPremiumMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="TravelNonPublicAirportMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="TravelPrivateAircraftMod" type="pd:ctDecimal" minOccurs="0"/>
+							<xs:element name="VaultUsageMod" type="pd:ctDecimal" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VacSubclassIdentifierType">
+		<xs:sequence>
+			<xs:element name="ClassName" type="xs:string"/>
+			<xs:element name="SubclassLetter">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VacSubclassType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:VacSubclassIdentifierType"/>
+			<xs:element name="Description" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:group name="VariablePolicyInfoGrp">
+		<xs:sequence>
+			<xs:element name="PackagedPolicy" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PolicyKind" type="xs:string" minOccurs="0"/>
+			<xs:element name="Producer" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:ProducerType">
+							<xs:attribute name="producerKey" type="xs:int" use="required"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ProducerIdentifier" type="pd:ProducerIdentifierType" minOccurs="0"/>
+			<xs:element name="ProducerAccountNumber" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PayrollDeductionClientCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="PayrollDeductionType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="WritingCompany" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:WritingCompanyType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IsFamilyOffice" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="IsFiremanFund" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IsCAHIConversion" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="MailToProducer" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="IsAgencyBill" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LlyodsRateCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="AgencyPaymentPlan" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="DirectBillPaymentPlan" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="AgencyPaymentOptionCode" type="pd:ctString" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="WritingCompanyRateCode" type="pd:ctString" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="NamedInsured" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Name" type="pd:TwoLineNameType"/>
+						<xs:choice>
+							<xs:element name="USAddress" type="pd:USAddressType"/>
+							<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+						</xs:choice>
+						<xs:element name="Email" type="xs:string" minOccurs="0"/>
+						<xs:element name="IsIndividual" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="IsCorporation" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="IsEstate" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="IsTrust" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="IsLLC" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="IsPartnership" type="xs:boolean" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BillingAddress" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Name" type="pd:TwoLineNameType"/>
+						<xs:choice>
+							<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+							<xs:element name="USAddress" type="pd:USAddressType"/>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExcessRewrite" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ExcessPriorPolNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExcessVehicleCreditCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="AlternatePolicyExtensionNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="AlternatePolicyCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="BasePolicyNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="RebateIndicator" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="VehicleCoveragesType">
+		<xs:sequence>
+			<xs:element name="VehicleIdentifier" type="pd:VehicleIdentifierType"/>
+			<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VehicleIdentifierType">
+		<xs:sequence>
+			<xs:element name="VehicleNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VehicleLiabilityLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VehicleLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType">
+				<xs:sequence>
+					<xs:element name="ChargeableAccident" type="pd:ctBoolean" minOccurs="0"/>
+					<xs:element name="DriverRecordGin" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:restriction base="pd:ctString">
+									<xs:length value="12"/>
+								</xs:restriction>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="DriverResponsible" type="pd:DriverIdentifierType" minOccurs="0"/>
+					<xs:element name="LossViolationSurcharged" type="pd:ctBoolean" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VehiclePremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="VehicleIdentifier" type="pd:VehicleIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VehicleRegistrantIdentifierType">
+		<xs:sequence>
+			<xs:element name="RegistrantNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VehicleRegistrantType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:VehicleRegistrantIdentifierType"/>
+			<xs:element name="VehicleRegistrantPermanentId" type="xs:integer"/>
+			<xs:element name="Individual" type="pd:PersonType"/>
+			<xs:element name="FedEmpIdNumber">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Gender">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString"/>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OrganizationName" type="pd:TwoLineNameType"/>
+			<xs:element name="LicenseNumber" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LicenseState" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="2"/>
+							<xs:maxLength value="14"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RegistrantType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehicleDriven" type="pd:VehicleIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<!-- TCS >> NextGen Enhancement Print project changes-->
+	<xs:attributeGroup name="VehicleAttrGrp">
+		<xs:attribute name="MovedVehicle" type="xs:boolean" use="optional"/>
+		<xs:attribute name="SubstituteVehicle" type="xs:boolean" use="optional"/>
+		<xs:attribute name="ChangeVehicleType" type="xs:boolean" use="optional"/>
+		<xs:attribute name="OtherVehicleRef" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+	<xs:complexType name="VehicleType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:VehicleIdentifierType"/>
+			<xs:element name="VehiclePermanentId" type="xs:integer" minOccurs="0"/>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="VehicleSignatureForms" type="pd:SignatureformType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="IdCardReqInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="VehicleKind" type="xs:string" minOccurs="0"/>
+			<xs:element name="LocationNumber" type="pd:LocationIdentifierType" minOccurs="0"/>
+			<xs:element name="Coverages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ActiveDisablingDevice" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="AccountPremium" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="AntiTheftCredit" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="AntiTheftDevice" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="AntiLockBrakeSystem" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="AvgRetailCost" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9999999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CompanyName" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="0"/>
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DaytimeRunningLights" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="DefensiveDriver" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="ElectricHomingDevice" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="EstimatedMileage" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9999999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GlassEtching" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="HighPerformanceSportsCar" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="HoodLock" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="IsFiremanFund" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LeasedVehicle" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="LicensePlateTransferredIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="Make" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="15"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Model" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ModelYear" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:totalDigits value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MotorcycleCC" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="99999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NumberOfAirBags" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="NumberOfLossPayees" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OriginalCostNew" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9999999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PassiveDisablingDevice" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PassiveRestraint" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PassiveSeatBelt" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PlatinumProductInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PrefillRequestNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="PrefillVehicleNumber" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="PricingScore" type="pd:PricingScoreType" minOccurs="0"/>
+			<xs:element name="PriorCarrier" type="pd:PriorCarrierType" minOccurs="0"/>
+			<xs:element name="PriorPolNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="RegistrationState" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="2"/>
+							<xs:maxLength value="14"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RegisteredVehicleType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Rewrite" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="UsedVehicle" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehicleCoverageReplacedCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehicleHomeCredit" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="VehicleHomePolicyNumber" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RltdPolicyRiskSeqNo" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="RltdPolicyRiskTypeCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="RltdPolicyRiskSizeAmount" type="pd:ctInteger" minOccurs="0"/>
+			<xs:element name="VehicleLiabilitySymbol" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="10"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VehiclePerformance" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehiclePersonalInjuryProtectionSymbol" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:length value="10"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VehicleRateClass" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehicleRateLevelIndicator" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehicleRatingTenurePolNo" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehicleRatingTenureYears" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="99999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VehicleRegistrationExpirationDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="VehicleSingleMultiCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="0"/>
+							<xs:maxLength value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VehicleUse" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VehIdNumber" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="17"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VINAntilockBrakeCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VINCollisionSymbol" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VINComprehensiveSymbol" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VINDaytimeRunningLightsCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="VINLastAccessDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="VINRestraintCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="AuxiliaryLightIndicator" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="SubTypeCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="2"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:VehicleAttrGrp"/>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="VehiclePremiumModType">
+		<xs:sequence>
+			<xs:element name="ConsentToRatePercent" type="pd:ctDecimal" minOccurs="0"/>
+			<xs:element name="TierOverride" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="TierOverrideCode" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ViolationIdentifierType">
+		<xs:sequence>
+			<xs:element name="ViolationNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ViolationPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="ViolationIdentifier" type="pd:ViolationIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ViolationType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:ViolationIdentifierType"/>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ConvictionDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="DriverResponsible" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:DriverIdentifierType">
+							<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DriverRecordGin" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ViolationDate" type="pd:ctDate" minOccurs="0"/>
+			<xs:element name="Description" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ViolationSeverity" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="ViolationCategory" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="SourceOfLoss" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="StateViolationCode" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="StandardViolationCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ViolationOrConvictionCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="0"/>
+							<xs:maxLength value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="WatercraftAdditionalInterestType">
+		<xs:complexContent>
+			<xs:extension base="pd:InterestedPartyType">
+				<xs:sequence>
+					<xs:element name="KindOfInsured" type="xs:string" minOccurs="0"/>
+					<xs:element name="Watercraft" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pd:WatercraftIdentifierType">
+									<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="WatercraftCoveragesType">
+		<xs:sequence>
+			<xs:element name="WatercraftIdentifier" type="pd:WatercraftIdentifierType"/>
+			<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WatercraftIdentifierType">
+		<xs:sequence>
+			<xs:element name="WatercraftNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WatercraftPremiumComponentsType">
+		<xs:sequence>
+			<xs:element name="WatercraftIdentifier" type="pd:WatercraftIdentifierType"/>
+			<xs:element name="CoverageIdentifier" type="pd:CoverageIdentifierType" minOccurs="0"/>
+			<xs:element name="Component" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WatercraftType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:WatercraftIdentifierType"/>
+			<xs:element name="WatercraftPermanentId" type="xs:integer" minOccurs="0"/>
+			<xs:element name="Type" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BoatType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="BoatPowerType" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="NavigationId" type="pd:ctString" minOccurs="0"/>
+			<xs:element name="Coverages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Coverage" type="pd:CoverageType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PlatinumProductInd" type="pd:ctBoolean" minOccurs="0"/>
+			<xs:element name="PremiumComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PremiumComponent" type="pd:PremiumComponentType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Make" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="15"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Model" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ModelYear" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:totalDigits value="4"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Length" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="99"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SpeedCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="1"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HullId" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="17"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HorsePower" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctInteger">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- TCS >> NextGen Enhancement for Print Project changes-->
+			<xs:element name="MooringCityName" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="15"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="WatercraftStCode" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:restriction base="pd:ctString">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="15"/>
+						</xs:restriction>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<!--TCS >> NextGen Enhancement for Print Project changes-->
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ProcessAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="WorkCompLossType">
+		<xs:complexContent>
+			<xs:extension base="pd:LossType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="WritingCompanyType">
+		<xs:sequence>
+			<xs:element name="NAICCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="5"/>
+						<xs:maxLength value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="OnePositionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TwoPositionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+	</xs:complexType>
+</xs:schema>

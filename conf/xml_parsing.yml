@@ -1,0 +1,506 @@
+secure:
+  url: {VTS-token-server}
+  headers:
+    Content-Type: Application/json
+  Ocp-Apim-Subscription-Key: ''
+
+force_list:
+  keys:
+    - Coverage
+    - Detail
+    - Peril
+    - CoveragePeril
+    - PremiumComponent
+    - Component
+    - HomeSignatureForms
+    - VehicleSignatureForms
+    - Mortgagee
+    - AdditionalInsured
+    - LossPayee
+    - AdditionalInterest
+    - WatercraftAdditionalInterest
+    - PolicyAdditionalInterest
+    - DriverVehicleRelationship
+    - VacSubclass
+    - VacItem
+    - AdditionalUnderlyingAuto
+    - AdditionalUnderlyingHome
+    - AdditionalUnderlyingFire
+    - AdditionalUnderlyingWatercraft
+    - AdditionalUnderlyingCorporateCar
+    - AdditionalUnderlyingBusinessPursuits
+    - HomeMods
+    - VehicleMods
+    - VacMods
+    - HomeLoss
+    - VehicleLoss
+    - TransactionReasons
+    - VehicleLOBSignatureForms
+    - MarketingProgramInformation
+    - ExcessLoss
+    - FamilyProtectionLoss
+    - HomeLiabilityLoss
+    - LiabilityLoss
+    - ValuableArticleLoss
+    - VehicleLiabilityLoss
+    - WorkCompLoss
+    - Payment
+    - SuccessStatus
+    - NonResidentLicense
+    - CountersigningInfo
+    - ContractInformation
+    - AgencyInstallmentInformation
+    - Home
+    - RiskLocation
+    - DNRInformation
+    - Driver
+    - Violation
+    - VacClass
+    - Umbrella
+    - BankVault
+    - Tenures
+    - Producer
+    - HighestTransientHomePartyId
+    - HighestTransientMortgageeId
+    - HighestTransientVehiclePartyId
+    - HighestTransientBankVaultId
+    - HighestTransientWatercraftPartyId
+    - ParagraphInformation
+    - Installment
+    - Coverages
+    - PremiumComponents
+    - Vehicle
+    - Watercraft
+    - VehicleRegistrant
+    - WritingCompany
+    - Text
+    - ReplyHeader
+    - RequestHeader
+    - GetBusinessEventDetailReply
+    - NewEventIdentifier
+    - AdditionalStateOrCountryCode
+    - Identifier
+    - BusinessEvent
+    - Exposures
+    - UnderwritingInformation
+    - USAddress
+    - InternationalAddress
+    - DriverResponsible
+    - ElectronicRewritePolicyExtensionNumber
+    - Losses
+  paths:
+    Coverages:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - SourceEventDetail
+    PremiumComponents:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - SourceEventDetail
+    Vehicle:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+    Watercraft:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+    VehicleRegistrant:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+    WritingCompany:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - PolicyInformation
+        - Producer
+        - WritingCompanies
+    Text:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - ContractInformation
+        - ParagraphInformation
+    NewEventIdentifier:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - Intent
+        - CreateBusinessEvent
+    AdditionalStateOrCountryCode:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - Insured
+        - USAddress
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - Insured
+        - InternationalAddress
+    Identifier:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - BusinessEvent
+    BusinessEvent:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+    Exposures:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - BusinessEvent
+    UnderwritingInformation:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - PolicyInformation
+    USAddress:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - PolicyInformation
+        - NamedInsured
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - PolicyInformation
+        - BillingAddress
+    InternationalAddress:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - PolicyInformation
+        - NamedInsured
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - PolicyInformation
+        - BillingAddress
+    DriverResponsible:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - Losses
+        - VehicleLoss
+    ElectronicRewritePolicyExtensionNumber:
+      - - ServiceReply
+        - GetBusinessEventDetailReply
+        - TargetEventDetail
+        - PolicyInformation
+
+input_spec:
+  AddressLine2:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  AreaCode:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  Email:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  Exchange:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  Extension:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  First:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  FringeLocationZipCode:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  FullName:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  FullPhoneNumber:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  Last:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  LicenseNumber:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  Middle:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  Name:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  NameLine1:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  NameLine2:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  NameLine:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  Number:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  Occupation:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  OccupationDetail:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  OriginalNumber:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  PostalCode:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  SSN:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  Street:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  VehIdNumber:
+    tokentemplate: CBASCII01
+    tokengroup: CB01
+  ZipCode:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  ZipCodeFirst:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+  ZipCodeLast:
+    tokentemplate: CBDIGIT01
+    tokengroup: CB01
+
+alterations:
+  Insured_Name_NameLine1:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  Insured_Name_NameLine2:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  Name_NameLine1:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  Name_NameLine2:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  Insured_NameLine1:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  Insured_NameLine2:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  TargetEventDetail_PolicyInformation_NamedInsured_Name_NameLine1:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  TargetEventDetail_PolicyInformation_NamedInsured_Name_NameLine2:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  TargetEventDetail_PolicyInformation_BillingAddress_Name_NameLine1:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  TargetEventDetail_PolicyInformation_BillingAddress_Name_NameLine2:
+    source:
+      - NameLine1
+      - NameLine2
+    target:
+      - NameLine
+  # Individual_fullname
+  Individual_Prefix:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Individual_First:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Individual_Middle:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Individual_Last:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Individual_Suffix:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_PrimaryInsured_Prefix:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_PrimaryInsured_First:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_PrimaryInsured_Middle:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_PrimaryInsured_Last:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_PrimaryInsured_Suffix:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_CoInsured_Prefix:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_CoInsured_First:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_CoInsured_Middle:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_CoInsured_Last:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  Insured_CoInsured_Suffix:
+    source:
+      - Prefix
+      - First
+      - Middle
+      - Last
+      - Suffix
+    target:
+      - FullName
+  # ZipCodes only need to be tokenized in the last 4 digits
+  ZipCode:
+    source:
+      - ZipCode
+    target:
+      - ZipCodeFirst
+      - ZipCodeLast
+    splits:
+      - [0, 5]
+      - [5, 9]
+  Insured_USAddress_ZipCode:
+    source:
+      - ZipCode
+    target:
+      - ZipCodeFirst
+      - ZipCodeLast
+    splits:
+      - [0, 5]
+      - [5, 9]
+  USAddress_ZipCode:
+    source:
+      - ZipCode
+    target:
+      - ZipCodeFirst
+      - ZipCodeLast
+    splits:
+      - [0, 5]
+      - [5, 9]
+

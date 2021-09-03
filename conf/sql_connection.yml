@@ -1,0 +1,4 @@
+server: 'aip-exploration-sqldw-server.database.windows.net'
+db: 'aip_exploration_sqldw'
+user: ''
+passwd: ''

@@ -1,0 +1,126 @@
+# list items are tags where the program will force a list
+required:
+  # GetBusinessEventDetailReplyType
+  - SuccessStatus
+
+  # BusinessEventType
+  - TransactionReasons
+  - VehicleLOBSignatureForms
+  - MarketingProgramInformation
+
+  # BusinessEventDetailType
+  - NonResidentLicense
+  - CountersigningInfo
+  - ContractInformation
+  - AgencyInstallmentInformation
+  - Coverages
+  # - PremiumComponents
+  - Home
+  - Vehicle
+  - Watercraft
+  - RiskLocation
+  - DNRInformation
+  - Driver
+  - Violation
+  - VacClass
+  - Umbrella
+  - BankVault
+  - VehicleRegistrant
+  - BusinessPursuits
+  - Tenures
+
+  # PolicyType
+  # VariablePolicyInfoGrp
+  - Producer
+
+  # ProdcuerType
+  - WritingCompany
+
+  # TransientNumberInfoGrp
+  - HighestTransientHomePartyId
+  - HighestTransientMortgageeId
+  - HighestTransientVehiclePartyId
+  - HighestTransientBankVaultId
+  - HighestTransientWatercraftPartyId
+
+  # ContractInformationType
+  - ParagraphInformation
+
+  # ParagraphInformationType
+  - Text
+
+  # InstallmentInformationType
+  - Installment
+  
+  # PolicyCoveragesType
+  - Coverage
+
+  # CoverageType
+  - Detail
+  - CoveragePeril
+
+  # PremiumComponents
+  - PremiumComponent
+
+  # PremiumComponentType
+  - Detail
+
+  # PolicyPremiumComponentsType
+  - Component
+
+  # HomeType
+  - Coverage
+  - Peril
+  - HomeSignatureForms
+
+  # VehicleType
+  - VehicleSignatureForms
+
+  # InterestedParties
+  - Mortgagee
+  - AdditionalInsured
+  - LossPayee
+  - AdditionalInterest
+  - WatercraftAdditionalInterest
+  - PolicyAdditionalInterest
+
+  # DriverType
+  - DriverVehicleRelationship
+
+  # VacClassType
+  - VacSubclass
+  - VacItem
+
+  # UmbrellaType
+  - AdditionalUnderlyingAuto
+  - AdditionalUnderlyingHome
+  - AdditionalUnderlyingFire
+  - AdditionalUnderlyingWatercraft
+  - AdditionalUnderlyingCorporateCar
+  - AdditionalUnderlyingBusinessPursuits
+
+  # PremiumMods
+  - HomeMods
+  - VehicleMods
+  - VacMods
+
+  # Losses
+  - HomeLoss
+  - VehicleLOBSignatureForms
+  - ExcessLoss
+  - FamilyProtectionLoss
+  - HomeLiabilityLoss
+  - LiabilityLoss
+  - ValuableArticleLoss
+  - VehicleLiabilityLoss
+  - WorkCompLoss
+
+  # LossType
+  - Payment
+
+  
+
+desired:
+  - ReplyHeader
+  - RequestHeader
+  - GetBusinessEventDetailReply

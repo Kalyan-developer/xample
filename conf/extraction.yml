@@ -1,0 +1,22 @@
+# xPath mappings for Audit fields to find data in source xml files
+TOTAL_POLICY_PREMIUM: '//cb:Value/cb:Decimal/text()[./ancestor::cb:Component//text() = "PolicyPremium" and ./ancestor::cb:Detail//text() = "CoveragePremium"]'
+TOTAL_POLICY_SURCHARGE: '//cb:Value/cb:Decimal/text()[./ancestor::cb:Component//text() = "FeePolicy" and ./ancestor::cb:Detail//text() = "FeeSurchargeTotalFee"]'
+TOTAL_POLICY_COMMMISSION: '//cb:Value/cb:Decimal/text()[./ancestor::cb:Component//text() = "PolicyPremium" and ./ancestor::cb:Detail//text() = "TotalAgentCommissionAmount"]'
+TOTAL_POLICY_TAX: '//cb:Value/cb:Decimal/text()[./ancestor::cb:Component//text() = "FeePolicy" and ./ancestor::cb:Detail//text() = "FeeTaxMunicipalTotalFee"]'
+
+TOTAL_POLICY_PREMIUM:
+  - PolicyPremium
+  - - CoveragePremium
+    - '["r", "ServiceReply", "GetBusinessEventDetailReply", "TargetEventDetail", "PremiumComponents", "Component", "Detail", "Value", "Decimal"]'
+TOTAL_POLICY_SURCHARGE:
+  - FeePolicy
+  - - FeeSurchargeTotalFee
+    - '["r", "ServiceReply", "GetBusinessEventDetailReply", "TargetEventDetail", "PremiumComponents", "Component", "Detail", "Value", "Decimal"]'
+TOTAL_POLICY_COMMMISSION:
+  - PolicyPremium
+  - - TotalAgentCommissionAmount
+    - '["r", "ServiceReply", "GetBusinessEventDetailReply", "TargetEventDetail", "PremiumComponents", "Component", "Detail", "Value", "Decimal"]'
+TOTAL_POLICY_TAX:
+  - FeePolicy
+  - - FeeTaxMunicipalTotalFee
+    - '["r", "ServiceReply", "GetBusinessEventDetailReply", "TargetEventDetail", "PremiumComponents", "Component", "Detail", "Value", "Decimal"]'

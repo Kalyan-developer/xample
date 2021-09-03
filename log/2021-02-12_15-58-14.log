@@ -1,0 +1,7 @@
+2021-02-12 15:58:14,699 [INFO ] __init__ -> Setup logging.
+2021-02-12 15:58:14,704 [INFO ] run -> parsing_batch 0
+2021-02-12 15:58:14,934 [INFO ] run -> Batch parsed in 0.229548 seconds
+2021-02-12 15:58:15,016 [INFO ] run -> writing data to 2021-02-12_DRC_flattened
+2021-02-12 15:58:15,162 [INFO ] run -> Batch data fully processed in 0.457676
+2021-02-12 15:58:15,163 [INFO ] run -> writing reports to C:\Users\vighar\PycharmProjects\xml_processing\data\input_flattened
+2021-02-12 15:58:15,174 [INFO ] run -> XML Parsing Process Complete

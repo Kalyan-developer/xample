@@ -1,0 +1,9 @@
+c360.person:
+  policy_number: "['r', 'ServiceReply', 'GetBusinessEventDetailReply', 'PolicyIdentifier', 'PolicyNumber']"
+  insured_number: "['r', 'ServiceReply', 'GetBusinessEventDetailReply', 'Insured', 'Identifier', 'InsuredNumber']"
+  name: "['r', 'ServiceReply', 'GetBusinessEventDetailReply', 'Insured', 'Name', 'NameLine1']"
+c360.location:
+  policy_number: "['r', 'ServiceReply', 'GetBusinessEventDetailReply', 'PolicyIdentifier', 'PolicyNumber']"
+  street: "['r', 'ServiceReply', 'GetBusinessEventDetailReply', 'Insured', 'USAddress', 'Street']"
+  city: "['r', 'ServiceReply', 'GetBusinessEventDetailReply', 'Insured', 'USAddress', 'City']"
+  state: "['r', 'ServiceReply', 'GetBusinessEventDetailReply', 'Insured', 'USAddress', 'Country']"

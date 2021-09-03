@@ -1,0 +1,1924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 sp1 (x64) (http://www.altova.com) by CHUBB INSURANCE (CHUBB INSURANCE) -->
+<xs:schema xmlns:pd="http://chubb.com/cpi/polsvc/xmlobj" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://chubb.com/cpi/polsvc/xmlobj" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CpiPolicyAdminDomain.xsd"/>
+	<xs:complexType name="AddBankVaultRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateBankVaultRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addBankVault"/>
+	</xs:complexType>
+	<xs:complexType name="AddBankVaultRqstType">
+		<xs:group ref="pd:AddUpdateBankVaultRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addBankVault"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddBusinessPursuitRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateBusinessPursuitRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addBusinessPursuit"/>
+	</xs:complexType>
+	<xs:complexType name="AddBusinessPursuitRqstType">
+		<xs:group ref="pd:AddUpdateBusinessPursuitRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addBusinessPursuit"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddDriverReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateDriverRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addDriver"/>
+	</xs:complexType>
+	<xs:complexType name="AddDriverRequestType">
+		<xs:group ref="pd:AddUpdateDriverRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addDriver"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddHomeIntPartyRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdatetHomeIntPartyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addHomeInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="AddHomeIntPartyRqstType">
+		<xs:group ref="pd:AddUpdatetHomeIntPartyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addHomeInterestedParty"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddHomeReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateHomeRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addHome"/>
+	</xs:complexType>
+	<xs:complexType name="AddHomeRequestType">
+		<xs:group ref="pd:AddUpdateHomeRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addHome"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddLossReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddLossRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addLoss"/>
+	</xs:complexType>
+	<xs:complexType name="AddLossRequestType">
+		<xs:group ref="pd:AddLossRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addLoss"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:group name="AddLossRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:choice>
+				<xs:element name="HomeLoss" type="pd:HomeLossType"/>
+				<xs:element name="VehicleLoss" type="pd:VehicleLossType"/>
+				<xs:element name="LiabilityLoss" type="pd:LiabilityLossType"/>
+				<xs:element name="FamilyProtectionLoss" type="pd:FamilyProtectionLossType"/>
+				<xs:element name="ValuableArticleLoss" type="pd:ValuableArticleLossType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="AddNonResLicenseReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateNonResLicenseRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addNonResLicenseInfo"/>
+	</xs:complexType>
+	<xs:complexType name="AddNonResLicenseRequestType">
+		<xs:group ref="pd:AddUpdateNonResLicenseRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addNonResLicenseInfo"/>
+	</xs:complexType>
+	<xs:group name="AddUpdateBankVaultRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="BankVault" type="pd:BankVaultType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateBusinessPursuitRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="BusinessPursuit" type="pd:BusinessPursuitType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateDriverRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="Driver" type="pd:DriverType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdatetHomeIntPartyRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:choice>
+				<xs:element name="Mortgagee" type="pd:MortgageeType"/>
+				<xs:element name="AdditionalInsured" type="pd:AdditionalInsuredType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateHomeRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="PolicyCoverages" type="pd:PolicyCoveragesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Home" type="pd:HomeType"/>
+			<xs:element name="HomeLocation">
+				<xs:complexType>
+					<xs:choice>
+						<xs:sequence>
+							<xs:element name="USAddress" type="pd:USAddressType"/>
+							<xs:element name="AdditionalDetails" type="pd:AdditionalLocationDetailsType" minOccurs="0"/>
+						</xs:sequence>
+						<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateNonResLicenseRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="NonResidentLicense" type="pd:NonResidentLicenseType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateVehicleRegistrantRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="VehicleRegistrant" type="pd:VehicleRegistrantType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateVehicleRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="PolicyCoverages" type="pd:PolicyCoveragesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Vehicle" type="pd:VehicleType"/>
+			<xs:element name="GaragedLocation">
+				<xs:complexType>
+					<xs:choice>
+						<xs:sequence>
+							<xs:element name="USAddress" type="pd:USAddressType"/>
+							<xs:element name="AdditionalDetails" type="pd:AdditionalLocationDetailsType" minOccurs="0"/>
+						</xs:sequence>
+						<xs:element name="InternationalAddress" type="pd:InternationalAddressType"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateVehIntPartyRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:choice>
+				<xs:element name="LossPayee" type="pd:LossPayeeType"/>
+				<xs:element name="AdditionalInterest" type="pd:AdditionalInterestType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateWatercraftIntPartyRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="AdditionalInterest" type="pd:WatercraftAdditionalInterestType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="AddUpdateWatercraftRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="Watercraft" type="pd:WatercraftType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="AddVehicleRegistrantReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateVehicleRegistrantRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addVehReg"/>
+	</xs:complexType>
+	<xs:complexType name="AddVehicleRegistrantRequestType">
+		<xs:group ref="pd:AddUpdateVehicleRegistrantRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addVehReg"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddVehicleReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateVehicleRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addVehicle"/>
+	</xs:complexType>
+	<xs:complexType name="AddVehicleRequestType">
+		<xs:group ref="pd:AddUpdateVehicleRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addVehicle"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+		<xs:attributeGroup ref="pd:VehicleProcessHintAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="AddVehIntPartyRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateVehIntPartyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addVehicleInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="AddVehIntPartyRqstType">
+		<xs:group ref="pd:AddUpdateVehIntPartyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addVehicleInterestedParty"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddViolationReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddViolationRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addViolation"/>
+	</xs:complexType>
+	<xs:complexType name="AddViolationRequestType">
+		<xs:group ref="pd:AddViolationRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addViolation"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:group name="AddViolationRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="Violation" type="pd:ViolationType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="AddWatercraftIntPartyRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateWatercraftIntPartyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addWatercraftInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="AddWatercraftIntPartyRqstType">
+		<xs:group ref="pd:AddUpdateWatercraftIntPartyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addWatercraftInterestedParty"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AddWatercraftReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateWatercraftRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addWatercraft"/>
+	</xs:complexType>
+	<xs:complexType name="AddWatercraftRequestType">
+		<xs:group ref="pd:AddUpdateWatercraftRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="addWatercraft"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AnonymousReplyType">
+		<xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="unknown"/>
+	</xs:complexType>
+	<xs:group name="CancelReinstateRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="DateReceived" type="xs:date"/>
+			<xs:element name="CancelReinstatePolicy" type="xs:boolean"/>
+			<xs:element name="GeneralNotes" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="List">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Vehicles" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="Vac" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="Excess" type="xs:boolean" minOccurs="0"/>
+						<xs:choice>
+							<xs:element name="Homes" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="OneHome" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="HomeNumber">
+											<xs:simpleType>
+												<xs:restriction base="xs:integer">
+													<xs:minInclusive value="0"/>
+													<xs:maxInclusive value="999"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PrimaryHome" minOccurs="0">
+											<xs:simpleType>
+												<xs:restriction base="xs:integer">
+													<xs:minInclusive value="0"/>
+													<xs:maxInclusive value="999"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Reason">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Code" type="xs:string"/>
+						<xs:element name="Text" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RewriteDetails" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TermEffDate" type="xs:date"/>
+						<xs:element name="Producer" type="pd:ProducerIdentifierType"/>
+						<xs:element name="RewriteDateCode" type="xs:string"/>
+						<xs:element name="DaysInTerm">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="999"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="HasPrerenewed" type="xs:boolean"/>
+						<xs:element name="NewIncpDate" type="xs:date"/>
+						<xs:element name="NewExpDate" type="xs:date"/>
+						<xs:element name="NewWrittenDate" type="xs:date"/>
+						<xs:element name="NewPolSuffix" type="xs:string"/>
+						<xs:element name="RewriteTypeCode" type="xs:string"/>
+						<xs:element name="OutOfSequence" type="xs:boolean"/>
+						<xs:element name="Userid" type="pd:UserIdentifierType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SupplementalInfoCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="SuppressCancelPaperCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="CancelReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:CancelReinstateRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="cancel"/>
+	</xs:complexType>
+	<xs:complexType name="CancelRequestType">
+		<xs:group ref="pd:CancelReinstateRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="cancel"/>
+	</xs:complexType>
+	<xs:complexType name="CreateBusinessEventReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:CreateUpdateBusinessEventRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="createBusinessEvent"/>
+	</xs:complexType>
+	<xs:complexType name="CreateBusinessEventRequestType">
+		<xs:group ref="pd:CreateUpdateBusinessEventRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="createBusinessEvent"/>
+	</xs:complexType>
+	<xs:complexType name="CreateInsuredReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:CreateUpdateInsuredRqstGrp"/>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="createInsured"/>
+	</xs:complexType>
+	<xs:complexType name="CreateInsuredRequestType">
+		<xs:group ref="pd:CreateUpdateInsuredRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="createInsured"/>
+	</xs:complexType>
+	<xs:complexType name="CreatePolicyReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:CreatePolicyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="createPolicy"/>
+	</xs:complexType>
+	<xs:complexType name="CreatePolicyRequestType">
+		<xs:group ref="pd:CreatePolicyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="createPolicy"/>
+	</xs:complexType>
+	<xs:group name="CreatePolicyRqstGrp">
+		<xs:sequence>
+			<xs:element name="InsuredIdentifier" type="pd:InsuredIdentifierType" minOccurs="0"/>
+			<xs:element name="NewlineEvent" type="pd:BusinessEventType"/>
+			<xs:element name="PolicyInformation" type="pd:PolicyType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="CreateUpdateBusinessEventRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEvent" type="pd:BusinessEventType"/>
+			<xs:element name="ChgBillPayerPLQInfo" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="resNo" type="xs:integer"/>
+						<xs:element name="resSeqNo" type="xs:integer"/>
+						<xs:element name="mortgageeNo" type="xs:integer" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="CreateUpdateInsuredRqstGrp">
+		<xs:sequence>
+			<xs:element name="Insured" type="pd:InsuredType"/>
+			<xs:element name="EventInfoForSSNUpdate" type="pd:BusinessEventType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="DeleteBankVaultRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="BankVaultdentifier" type="pd:BankVaultIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteBankVault"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteBankVaultReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="BankVaultIdentifier" type="pd:BankVaultIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteBankVault"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteBusinessPursuitRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="BusinessPursuitdentifier" type="pd:BusinessPursuitIdentifierType"/>
+			<xs:element name="AssociatedHome" type="pd:HomeIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteBusinessPursuit"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteBusinessPursuitReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="BusinessPursuitdentifier" type="pd:BusinessPursuitIdentifierType"/>
+				<xs:element name="AssociatedHome" type="pd:HomeIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteBusinessPursuit"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteDriverReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="DriverIdentifier" type="pd:DriverIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteDriver"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteDriverRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="DriverIdentifier" type="pd:DriverIdentifierType"/>
+			<xs:element name="MemberType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="LicensedDriver"/>
+						<xs:enumeration value="PermitDriver"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DeleteReason" type="pd:ctString" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteDriver"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteHomeIntPartyReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="InterestedParty">
+					<xs:complexType>
+						<xs:group ref="pd:DeleteHomeIntPartyRqstGrp"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteHomeInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteHomeIntPartyRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="InterestedParty">
+				<xs:complexType>
+					<xs:group ref="pd:DeleteHomeIntPartyRqstGrp"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteHomeInterestedParty"/>
+	</xs:complexType>
+	<xs:group name="DeleteHomeIntPartyRqstGrp">
+		<xs:choice>
+			<xs:element name="Mortgagee">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Identifier" type="pd:InterestedPartyIdentifierType"/>
+						<xs:element name="AssociatedHome" type="pd:HomeIdentifierType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdditionalInsured">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Identifier" type="pd:InterestedPartyIdentifierType"/>
+						<xs:element name="AssociatedHome" type="pd:HomeIdentifierType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="DeleteHomeReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteHome"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteHomeRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteHome"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteLossReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="LossIdentifier" type="pd:LossIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteLoss"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteLossRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="LossIdentifier" type="pd:LossIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteLoss"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteNonResLicenseReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="NonResLicenseIdentifier" type="pd:NonResidentLicenseIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteNonResLicenseInfo"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteNonResLicenseRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="NonResLicenseIdentifier" type="pd:NonResidentLicenseIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteNonResLicenseInfo"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteVehicleReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="VehicleIdentifier" type="pd:VehicleIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteVehicle"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteVehicleRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="VehicleIdentifier" type="pd:VehicleIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteVehicle"/>
+		<xs:attributeGroup ref="pd:VehicleProcessHintAttrGrp"/>
+	</xs:complexType>
+	<xs:group name="DeleteVehicleRegistrantRqstGrp">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:VehicleRegistrantIdentifierType"/>
+			<xs:element name="Vehicle" type="pd:VehicleIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="DeleteVehicleRegistrantReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:group ref="pd:DeleteVehicleRegistrantRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteVehReg"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteVehicleRegistrantRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:group ref="pd:DeleteVehicleRegistrantRqstGrp"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteVehReg"/>
+		<xs:attributeGroup ref="pd:VehicleProcessHintAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteVehIntPartyReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="InterestedParty">
+					<xs:complexType>
+						<xs:group ref="pd:DeleteVehIntPartyRqstGrp"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteVehicleInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteVehIntPartyRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="InterestedParty">
+				<xs:complexType>
+					<xs:group ref="pd:DeleteVehIntPartyRqstGrp"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteVehicleInterestedParty"/>
+	</xs:complexType>
+	<xs:group name="DeleteVehIntPartyRqstGrp">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:InterestedPartyIdentifierType"/>
+			<xs:element name="Vehicle" type="pd:VehicleIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="DeleteViolationReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="ViolationIdentifier" type="pd:ViolationIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteDriver"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteViolationRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="ViolationIdentifier" type="pd:ViolationIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteDriver"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteWatercraftIntPartyReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="InterestedParty">
+					<xs:complexType>
+						<xs:group ref="pd:DeleteWatercraftIntPartyRqstGrp"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteWatercraftInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteWatercraftIntPartyRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="InterestedParty">
+				<xs:complexType>
+					<xs:group ref="pd:DeleteWatercraftIntPartyRqstGrp"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteWatercraftInterestedParty"/>
+	</xs:complexType>
+	<xs:group name="DeleteWatercraftIntPartyRqstGrp">
+		<xs:sequence>
+			<xs:element name="Identifier" type="pd:InterestedPartyIdentifierType"/>
+			<xs:element name="Watercraft" type="pd:WatercraftIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="DeleteWatercraftReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+				<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+				<xs:element name="WatercraftIdentifier" type="pd:WatercraftIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteWatercraft"/>
+	</xs:complexType>
+	<xs:complexType name="DeleteWatercraftRequestType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="WatercraftIdentifier" type="pd:WatercraftIdentifierType"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="deleteWatercraft"/>
+	</xs:complexType>
+	<xs:complexType name="GetBusinessEventDetailReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetBusinessEventDetailRqstGrp"/>
+				<xs:element name="Insured" type="pd:InsuredType"/>
+				<xs:element name="Term" type="pd:TermType"/>
+				<xs:group ref="pd:PermanentNumberInfoGrp" minOccurs="0"/>
+				<xs:element name="IssuedPolicy" type="pd:IssuedPolicyType" minOccurs="0"/>
+				<xs:element name="SourceEventDetail" type="pd:BusinessEventDetailType" minOccurs="0"/>
+				<xs:element name="TargetEventDetail" type="pd:BusinessEventDetailType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getBusinessEventDetail"/>
+	</xs:complexType>
+	<xs:complexType name="GetBusinessEventDetailRequestType">
+		<xs:group ref="pd:GetBusinessEventDetailRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getBusinessEventDetail"/>
+	</xs:complexType>
+	<xs:group name="GetBusinessEventDetailRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="Intent">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="ReadOnly">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeSourceEvent" type="xs:boolean" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CreateBusinessEvent">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="NewEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+									<xs:element name="NewEventKind" type="pd:BusinessEventKindType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UpdateBusinessEvent"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IncludePremium" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="GetComplianceResultsReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetComplianceResultsRqstGrp"/>
+				<xs:element name="TargetResults">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Result" type="pd:ComplianceResult" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SourceResults" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Result" type="pd:ComplianceResult" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getComplianceResults"/>
+	</xs:complexType>
+	<xs:complexType name="GetComplianceResultsRequestType">
+		<xs:group ref="pd:GetComplianceResultsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getComplianceResults"/>
+	</xs:complexType>
+	<xs:group name="GetComplianceResultsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="Intent">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="ReadOnly">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeSourceEvent" type="xs:boolean" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UpdateBusinessEvent"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="GetInsuredDetailsReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetInsuredDetailsRqstGrp"/>
+				<xs:element name="Insured" type="pd:InsuredType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getInsuredDetails"/>
+	</xs:complexType>
+	<xs:complexType name="GetInsuredDetailsRequestType">
+		<xs:group ref="pd:GetInsuredDetailsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getInsuredDetails"/>
+	</xs:complexType>
+	<xs:group name="GetInsuredDetailsRqstGrp">
+		<xs:sequence>
+			<xs:element name="InsuredIdentifier" type="pd:InsuredIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="GetInsuredPoliciesReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetInsuredPoliciesRqstGrp"/>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType" maxOccurs="unbounded"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getInsuredPolicies"/>
+	</xs:complexType>
+	<xs:complexType name="GetInsuredPoliciesRequestType">
+		<xs:group ref="pd:GetInsuredPoliciesRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getInsuredPolicies"/>
+	</xs:complexType>
+	<xs:group name="GetInsuredPoliciesRqstGrp">
+		<xs:sequence>
+			<xs:element name="InsuredIdentifier" type="pd:InsuredIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="GetPolicySegmentsReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetPolicySegmentsRqstGrp"/>
+				<xs:element name="PolicySegments" type="pd:PolicySegmentsType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getPolicySegments"/>
+	</xs:complexType>
+	<xs:complexType name="GetPolicySegmentsRequestType">
+		<xs:group ref="pd:GetPolicySegmentsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getPolicySegments"/>
+	</xs:complexType>
+	<xs:group name="GetPolicySegmentsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="GetGeneralNotesReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetGeneralNotesRqstGrp"/>
+				<xs:element name="GeneralNotes" type="pd:GeneralNotesType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getGeneralNotes"/>
+	</xs:complexType>
+	<xs:group name="GetGeneralNotesRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="GetGeneralNotesRequestType">
+		<xs:group ref="pd:GetGeneralNotesRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getGeneralNotes"/>
+	</xs:complexType>
+	<xs:complexType name="GetPolicySummaryReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetPolicySummaryRqstGrp"/>
+				<xs:element name="Insured" type="pd:InsuredType"/>
+				<xs:element name="PolicyInfo">
+					<xs:complexType>
+						<xs:group ref="pd:FixedPolicyInfoGrp"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="History">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BusinessEvent" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="pd:BusinessEventType">
+											<xs:attribute name="producerReference" type="xs:int" use="required"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Producer" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="pd:ProducerType">
+											<xs:attribute name="producerKey" type="xs:int" use="required"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Term" type="pd:TermType" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:key name="producerKey">
+						<xs:selector xpath="pd:Producer"/>
+						<xs:field xpath="@producerKey"/>
+					</xs:key>
+					<xs:keyref name="producerRef" refer="pd:producerKey">
+						<xs:selector xpath="pd:BusinessEvent"/>
+						<xs:field xpath="@producerRef"/>
+					</xs:keyref>
+				</xs:element>
+				<xs:element name="IssuedPolicy" type="pd:IssuedPolicyType" minOccurs="0"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getPolicySummary"/>
+	</xs:complexType>
+	<xs:group name="GetPolicySummaryRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="NumberOfTerms" type="xs:integer" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="GetPolicySummaryRqstType">
+		<xs:group ref="pd:GetPolicySummaryRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getPolicySummary"/>
+	</xs:complexType>
+	<xs:complexType name="GetVacItemDetailReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:GetVacItemDetailRqstGrp"/>
+				<xs:element name="SourceEventItems" minOccurs="0">
+					<xs:complexType>
+						<xs:group ref="pd:VacItemDetailGrp"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TargetEventItems">
+					<xs:complexType>
+						<xs:group ref="pd:VacItemDetailGrp"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="HighestTransientVacItemNoForSubCls" type="pd:VacItemIdentifierType" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getVacItemDetail"/>
+	</xs:complexType>
+	<xs:complexType name="GetVacItemDetailRequestType">
+		<xs:group ref="pd:GetVacItemDetailRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="getVacItemDetail"/>
+	</xs:complexType>
+	<xs:group name="GetVacItemDetailRqstGrp">
+		<xs:sequence>
+			<xs:group ref="pd:GetBusinessEventDetailRqstGrp"/>
+			<xs:element name="VacClasses" type="pd:VacClassIdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="HealthCheckReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="TestCobolAccess" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="TestImsAccess" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="TestDb2Access" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="TestMqAccess" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="Alive" type="xs:boolean"/>
+				<xs:element name="CobolAvailable" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="ImsAvailable" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="Db2Available" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="MqAvailable" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="healthCheck"/>
+	</xs:complexType>
+	<xs:complexType name="HealthCheckRequestType">
+		<xs:sequence>
+			<xs:element name="TestCobolAccess" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="TestImsAccess" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="TestDb2Access" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="TestMqAccess" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="healthCheck"/>
+	</xs:complexType>
+	<xs:complexType name="MsgHeaderType">
+		<xs:sequence>
+			<xs:element name="ApplId" type="xs:string"/>
+			<xs:element name="ApplInstanceId" type="xs:string" minOccurs="0"/>
+			<xs:element name="User" type="pd:UserIdentifierType"/>
+			<xs:element name="MsgDate" type="xs:date"/>
+			<xs:element name="MsgTime" type="xs:time"/>
+			<xs:element name="PolicyLock" type="pd:PolicyLockType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PolicyLockType">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="LockGenId">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessComplianceResultsReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:ProcessComplianceResultsRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processComplianceResults"/>
+	</xs:complexType>
+	<xs:complexType name="ProcessComplianceResultsRequestType">
+		<xs:group ref="pd:ProcessComplianceResultsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processComplianceResults"/>
+	</xs:complexType>
+	<xs:group name="ProcessComplianceResultsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="Result" type="pd:ComplianceResult" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ProcessCoveragesReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:ProcessCoveragesRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processCoverages"/>
+	</xs:complexType>
+	<xs:complexType name="ProcessCoveragesRequestType">
+		<xs:group ref="pd:ProcessCoveragesRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processCoverages"/>
+	</xs:complexType>
+	<xs:group name="ProcessCoveragesRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="PolicyCoverages" type="pd:PolicyCoveragesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="HomeCoverages" type="pd:HomeCoveragesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VehicleCoverages" type="pd:VehicleCoveragesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WatercraftCoverages" type="pd:WatercraftCoveragesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ProcessPremCompsRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:ProcessPremCompsRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processPremiumComponents"/>
+	</xs:complexType>
+	<xs:group name="ProcessPremCompsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="PolicyComponents" type="pd:PolicyPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalInsuredComponents" type="pd:AdditionalInsuredPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="BusinessPursuitComponents" type="pd:BusinessPursuitPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DriverComponents" type="pd:DriverPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="LossComponents" type="pd:LossPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ViolationComponents" type="pd:ViolationPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="HomeComponents" type="pd:HomePremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VehicleComponents" type="pd:VehiclePremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VacComponents" type="pd:VacPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WatercraftComponents" type="pd:WatercraftPremiumComponentsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ProcessPremCompsRqstType">
+		<xs:group ref="pd:ProcessPremCompsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processPremiumComponents"/>
+	</xs:complexType>
+	<xs:complexType name="ProcessPremiumModsReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:ProcessPremiumModsRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processPremiumMods"/>
+	</xs:complexType>
+	<xs:complexType name="ProcessPremiumModsRequestType">
+		<xs:group ref="pd:ProcessPremiumModsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processPremiumMods"/>
+	</xs:complexType>
+	<xs:group name="ProcessPremiumModsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="HomeMods" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="HomeIdentifier" type="pd:HomeIdentifierType"/>
+						<xs:element name="HomePremiumMod" type="pd:HomePremiumModType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VehicleMods" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="VehicleIdentifier" type="pd:VehicleIdentifierType"/>
+						<xs:element name="VehiclePremiumMod" type="pd:VehiclePremiumModType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VacMods" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="VacClassIdentifier" type="pd:VacClassIdentifierType"/>
+						<xs:element name="VacPremiumMod" type="pd:VacPremiumModType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ProcessVacClassesRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:ProcessVacClassesRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processVacClasses"/>
+	</xs:complexType>
+	<xs:group name="ProcessVacClassesRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="VacClass" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:VacClassType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VacRatingLocation" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="pd:HomeIdentifierType">
+							<xs:attributeGroup ref="pd:ChangeIndAttrGrp"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VacRewrite" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="VacPriorPolNo" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ProcessVacClassesRqstType">
+		<xs:group ref="pd:ProcessVacClassesRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processVacClasses"/>
+	</xs:complexType>
+	<xs:complexType name="ProcessVacItemsRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:ProcessVacItemsRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processVacItems"/>
+	</xs:complexType>
+	<xs:group name="ProcessVacItemsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:group ref="pd:VacItemDetailGrp"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ProcessVacItemsRqstType">
+		<xs:group ref="pd:ProcessVacItemsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="processVacItems"/>
+		<xs:attribute name="blockIDChange" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ReinstateReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:CancelReinstateRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="cancel"/>
+	</xs:complexType>
+	<xs:complexType name="ReinstateRequestType">
+		<xs:group ref="pd:CancelReinstateRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="reinstate"/>
+	</xs:complexType>
+	<xs:complexType name="ReserveInsuredNbrRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="InsuredIdentifier" type="pd:InsuredIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="reserveInsuredNumber"/>
+	</xs:complexType>
+	<xs:complexType name="ReserveInsuredNbrRqstType">
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="reserveInsuredNumber"/>
+	</xs:complexType>
+	<xs:complexType name="ReservePolicyNbrRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:ReservePolicyNbrRqstGrp"/>
+				<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="reservePolicyNumber"/>
+	</xs:complexType>
+	<xs:group name="ReservePolicyNbrRqstGrp">
+		<xs:sequence>
+			<xs:element name="InsuredIdentifier" type="pd:InsuredIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ReservePolicyNbrRqstType">
+		<xs:group ref="pd:ReservePolicyNbrRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="reservePolicyNumber"/>
+	</xs:complexType>
+	<xs:complexType name="SaveUnderwriterApproveDeclineReasonsReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:SaveUnderwriterApproveDeclineReasonsRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="UWApproveDeclineReasons"/>
+	</xs:complexType>
+	<xs:complexType name="SaveUnderwriterApproveDeclineReasonsRequestType">
+		<xs:group ref="pd:SaveUnderwriterApproveDeclineReasonsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="UWApproveDeclineReasons"/>
+	</xs:complexType>
+	<xs:group name="SaveUnderwriterApproveDeclineReasonsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="UnderwriterApproveDeclineReasons" type="pd:UnderwriterApproveDeclineReasonsType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="SendToOperationsReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:SendToOperationsRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="sendToOps"/>
+	</xs:complexType>
+	<xs:complexType name="SendToOperationsRequestType">
+		<xs:group ref="pd:SendToOperationsRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="sendToOps"/>
+	</xs:complexType>
+	<xs:group name="SendToOperationsRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="SendToOpsRequest" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="NumberOfErrors" type="xs:string" minOccurs="0"/>
+			<xs:element name="HasBeenSaved" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="ServiceReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ReplyHeader" type="pd:MsgHeaderType"/>
+				<xs:element name="RequestHeader" type="pd:MsgHeaderType"/>
+				<xs:choice> <!-- Force choice for XML generator
+					<xs:element name="AddBankVaultReply" type="pd:AddBankVaultRplyType"/>
+					<xs:element name="AddBusinessPursuitReply" type="pd:AddBusinessPursuitRplyType"/>
+					<xs:element name="AddDriverReply" type="pd:AddDriverReplyType"/>
+					<xs:element name="AddHomeIntPartyReply" type="pd:AddHomeIntPartyRplyType"/>
+					<xs:element name="AddHomeReply" type="pd:AddHomeReplyType"/>
+					<xs:element name="AddLossReply" type="pd:AddLossReplyType"/>
+					<xs:element name="AddNonResLicenseReply" type="pd:AddNonResLicenseReplyType"/>
+					<xs:element name="AddVehicleReply" type="pd:AddVehicleReplyType"/>
+					<xs:element name="AddVehicleRegistrantReply" type="pd:AddVehicleRegistrantReplyType"/>
+					<xs:element name="AddVehIntPartyReply" type="pd:AddVehIntPartyRplyType"/>
+					<xs:element name="AddViolationReply" type="pd:AddViolationReplyType"/>
+					<xs:element name="AnonymousReply" type="pd:AnonymousReplyType"/>
+					<xs:element name="AddWatercraftIntPartyReply" type="pd:AddWatercraftIntPartyRplyType"/>
+					<xs:element name="CancelReply" type="pd:CancelReplyType"/>
+					<xs:element name="AddWatercraftReply" type="pd:AddWatercraftReplyType"/>
+					<xs:element name="CreateBusinessEventReply" type="pd:CreateBusinessEventReplyType"/>
+					<xs:element name="CreateInsuredReply" type="pd:CreateInsuredReplyType"/>
+					<xs:element name="CreatePolicyReply" type="pd:CreatePolicyReplyType"/>
+					<xs:element name="DeleteBankVaultReply" type="pd:DeleteBankVaultReplyType"/>
+					<xs:element name="DeleteBusinessPursuitReply" type="pd:DeleteBusinessPursuitReplyType"/>
+					<xs:element name="DeleteDriverReply" type="pd:DeleteDriverReplyType"/>
+					<xs:element name="DeleteHomeIntPartyReply" type="pd:DeleteHomeIntPartyReplyType"/>
+					<xs:element name="DeleteHomeReply" type="pd:DeleteHomeReplyType"/>
+					<xs:element name="DeleteLossReply" type="pd:DeleteLossReplyType"/>
+					<xs:element name="DeleteNonResLicenseReply" type="pd:DeleteNonResLicenseReplyType"/>
+					<xs:element name="DeleteVehicleReply" type="pd:DeleteVehicleReplyType"/>
+					<xs:element name="DeleteVehicleRegistrantReply" type="pd:DeleteVehicleRegistrantReplyType"/>
+					<xs:element name="DeleteVehIntPartyReply" type="pd:DeleteVehIntPartyReplyType"/>
+					<xs:element name="DeleteViolationReply" type="pd:DeleteViolationReplyType"/>
+					<xs:element name="DeleteWatercraftIntPartyReply" type="pd:DeleteWatercraftIntPartyReplyType"/>
+					<xs:element name="DeleteWatercraftReply" type="pd:DeleteWatercraftReplyType"/>
+					-->
+					<xs:element name="GetBusinessEventDetailReply" type="pd:GetBusinessEventDetailReplyType"/>
+					<!--
+					<xs:element name="GetGeneralNotesReply" type="pd:GetGeneralNotesReplyType"/>
+					<xs:element name="GetComplianceResultsReply" type="pd:GetComplianceResultsReplyType"/>
+					<xs:element name="GetInsuredDetailsReply" type="pd:GetInsuredDetailsReplyType"/>
+					<xs:element name="GetInsuredPoliciesReply" type="pd:GetInsuredPoliciesReplyType"/>
+					<xs:element name="GetPolicySegmentsReply" type="pd:GetPolicySegmentsReplyType"/>
+					<xs:element name="GetPolicySummaryReply" type="pd:GetPolicySummaryReplyType"/>
+					<xs:element name="GetVacItemDetailReply" type="pd:GetVacItemDetailReplyType"/>
+					<xs:element name="HealthCheckReply" type="pd:HealthCheckReplyType"/>
+					<xs:element name="ProcessComplianceResultsReply" type="pd:ProcessComplianceResultsReplyType"/>
+					<xs:element name="ProcessCoveragesReply" type="pd:ProcessCoveragesReplyType"/>
+					<xs:element name="ProcessPremiumComponentReply" type="pd:ProcessPremCompsRplyType"/>
+					<xs:element name="ProcessPremiumModsReply" type="pd:ProcessPremiumModsReplyType"/>
+					<xs:element name="ProcessVacClassesReply" type="pd:ProcessVacClassesRplyType"/>
+					<xs:element name="ProcessVacItemsReply" type="pd:ProcessVacItemsRplyType"/>
+					<xs:element name="ReinstateReply" type="pd:ReinstateReplyType"/>
+					<xs:element name="ReserveInsuredNumberReply" type="pd:ReserveInsuredNbrRplyType"/>
+					<xs:element name="ReservePolicyNumberReply" type="pd:ReservePolicyNbrRplyType"/>
+					<xs:element name="SaveUnderwriterApproveDeclineReasonsReply" type="pd:SaveUnderwriterApproveDeclineReasonsReplyType"/>
+					<xs:element name="SendToOperationsReply" type="pd:SendToOperationsReplyType"/>
+					<xs:element name="UnlockPolicyReply" type="pd:UnlockPolicyReplyType"/>
+					<xs:element name="UpdateBankVaultReply" type="pd:UpdateBankVaultRplyType"/>
+					<xs:element name="UpdateBusinessPursuitReply" type="pd:UpdateBusinessPursuitRplyType"/>
+					<xs:element name="UpdateBusinessEventReply" type="pd:UpdateBusinessEventReplyType"/>
+					<xs:element name="UpdateDriverReply" type="pd:UpdateDriverReplyType"/>
+					<xs:element name="UpdateHomeIntPartyReply" type="pd:UpdateHomeIntPartyRplyType"/>
+					<xs:element name="UpdateHomeReply" type="pd:UpdateHomeReplyType"/>
+					<xs:element name="UpdateInsuredReply" type="pd:UpdateInsuredReplyType"/>
+					<xs:element name="UpdateLossReply" type="pd:UpdateLossReplyType"/>
+					<xs:element name="UpdateNonResLicenseReply" type="pd:UpdateNonResLicenseReplyType"/>
+					<xs:element name="UpdatePolicyReply" type="pd:UpdatePolicyReplyType"/>
+					<xs:element name="UpdateVehicleReply" type="pd:UpdateVehicleReplyType"/>
+					<xs:element name="UpdateVehicleRegistrantReply" type="pd:UpdateVehicleRegistrantReplyType"/>
+					<xs:element name="UpdateVehIntPartyReply" type="pd:UpdateVehIntPartyRplyType"/>
+					<xs:element name="UpdateViolationReply" type="pd:UpdateViolationReplyType"/>
+					<xs:element name="UpdateWatercraftIntPartyReply" type="pd:UpdateWatercraftIntPartyRplyType"/>
+					<xs:element name="UpdateWatercraftReply" type="pd:UpdateWatercraftReplyType"/>
+					<xs:element name="VerifyAccessToInsuredReply" type="pd:VerifyAccessToInsdRplyType"/>
+					-->
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ServiceRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RequestHeader" type="pd:MsgHeaderType"/>
+				<xs:choice>
+					<xs:element name="AddBankVaultRequest" type="pd:AddBankVaultRqstType"/>
+					<xs:element name="AddBusinessPursuitRequest" type="pd:AddBusinessPursuitRqstType"/>
+					<xs:element name="AddDriverRequest" type="pd:AddDriverRequestType"/>
+					<xs:element name="AddHomeIntPartyRequest" type="pd:AddHomeIntPartyRqstType"/>
+					<xs:element name="AddHomeRequest" type="pd:AddHomeRequestType"/>
+					<xs:element name="AddLossRequest" type="pd:AddLossRequestType"/>
+					<xs:element name="AddNonResLicenseRequest" type="pd:AddNonResLicenseRequestType"/>
+					<xs:element name="AddVehicleRequest" type="pd:AddVehicleRequestType"/>
+					<xs:element name="AddVehicleRegistrantRequest" type="pd:AddVehicleRegistrantRequestType"/>
+					<xs:element name="AddVehIntPartyRequest" type="pd:AddVehIntPartyRqstType"/>
+					<xs:element name="AddViolationRequest" type="pd:AddViolationRequestType"/>
+					<xs:element name="CancelRequest" type="pd:CancelRequestType"/>
+					<xs:element name="AddWatercraftIntPartyRequest" type="pd:AddWatercraftIntPartyRqstType"/>
+					<xs:element name="CreateBusinessEventRequest" type="pd:CreateBusinessEventRequestType"/>
+					<xs:element name="AddWatercraftRequest" type="pd:AddWatercraftRequestType"/>
+					<xs:element name="CreateInsuredRequest" type="pd:CreateInsuredRequestType"/>
+					<xs:element name="CreatePolicyRequest" type="pd:CreatePolicyRequestType"/>
+					<xs:element name="DeleteBankVaultRequest" type="pd:DeleteBankVaultRequestType"/>
+					<xs:element name="DeleteBusinessPursuitRequest" type="pd:DeleteBusinessPursuitRequestType"/>
+					<xs:element name="DeleteDriverRequest" type="pd:DeleteDriverRequestType"/>
+					<xs:element name="DeleteHomeIntPartyRequest" type="pd:DeleteHomeIntPartyRequestType"/>
+					<xs:element name="DeleteHomeRequest" type="pd:DeleteHomeRequestType"/>
+					<xs:element name="DeleteLossRequest" type="pd:DeleteLossRequestType"/>
+					<xs:element name="DeleteNonResLicenseRequest" type="pd:DeleteNonResLicenseRequestType"/>
+					<xs:element name="DeleteVehicleRequest" type="pd:DeleteVehicleRequestType"/>
+					<xs:element name="DeleteVehicleRegistrantRequest" type="pd:DeleteVehicleRegistrantRequestType"/>
+					<xs:element name="DeleteVehIntPartyRequest" type="pd:DeleteVehIntPartyRequestType"/>
+					<xs:element name="DeleteViolationRequest" type="pd:DeleteViolationRequestType"/>
+					<xs:element name="GetComplianceResultsRequest" type="pd:GetComplianceResultsRequestType"/>
+					<xs:element name="GetBusinessEventDetailRequest" type="pd:GetBusinessEventDetailRequestType"/>
+					<xs:element name="GetGeneralNotesRequest" type="pd:GetGeneralNotesRequestType"/>
+					<xs:element name="GetInsuredDetailsRequest" type="pd:GetInsuredDetailsRequestType"/>
+					<xs:element name="GetInsuredPoliciesRequest" type="pd:GetInsuredPoliciesRequestType"/>
+					<xs:element name="GetPolicySegmentsRequest" type="pd:GetPolicySegmentsRequestType"/>
+					<xs:element name="GetPolicySummaryRequest" type="pd:GetPolicySummaryRqstType"/>
+					<xs:element name="GetVacItemDetailRequest" type="pd:GetVacItemDetailRequestType"/>
+					<xs:element name="HealthCheckRequest" type="pd:HealthCheckRequestType"/>
+					<xs:element name="ProcessComplianceResultsRequest" type="pd:ProcessComplianceResultsRequestType"/>
+					<xs:element name="ProcessCoveragesRequest" type="pd:ProcessCoveragesRequestType"/>
+					<xs:element name="ProcessPremiumComponentRequest" type="pd:ProcessPremCompsRqstType"/>
+					<xs:element name="ProcessPremiumModsRequest" type="pd:ProcessPremiumModsRequestType"/>
+					<xs:element name="ProcessVacClassesRequest" type="pd:ProcessVacClassesRqstType"/>
+					<xs:element name="ProcessVacItemsRequest" type="pd:ProcessVacItemsRqstType"/>
+					<xs:element name="ReinstateRequest" type="pd:ReinstateRequestType"/>
+					<xs:element name="ReserveInsuredNumberRequest" type="pd:ReserveInsuredNbrRqstType"/>
+					<xs:element name="ReservePolicyNumberRequest" type="pd:ReservePolicyNbrRqstType"/>
+					<xs:element name="SaveUnderwriterApproveDeclineReasonsRequest" type="pd:SaveUnderwriterApproveDeclineReasonsRequestType"/>
+					<xs:element name="SendToOperationsRequest" type="pd:SendToOperationsRequestType"/>
+					<xs:element name="UnlockPolicyRequest" type="pd:UnlockPolicyRqstType"/>
+					<xs:element name="DeleteWatercraftIntPartyRequest" type="pd:DeleteWatercraftIntPartyRequestType"/>
+					<xs:element name="UpdateBankVaultRequest" type="pd:UpdateBankVaultRqstType"/>
+					<xs:element name="UpdateBusinessPursuitRequest" type="pd:UpdateBusinessPursuitRqstType"/>
+					<xs:element name="DeleteWatercraftRequest" type="pd:DeleteWatercraftRequestType"/>
+					<xs:element name="UpdateBusinessEventRequest" type="pd:UpdateBusinessEventRequestType"/>
+					<xs:element name="UpdateDriverRequest" type="pd:UpdateDriverRequestType"/>
+					<xs:element name="UpdateHomeIntPartyRequest" type="pd:UpdateHomeIntPartyRqstType"/>
+					<xs:element name="UpdateHomeRequest" type="pd:UpdateHomeRequestType"/>
+					<xs:element name="UpdateInsuredRequest" type="pd:UpdateInsuredRequestType"/>
+					<xs:element name="UpdateLossRequest" type="pd:UpdateLossRequestType"/>
+					<xs:element name="UpdateNonResLicenseRequest" type="pd:UpdateNonResLicenseRequestType"/>
+					<xs:element name="UpdatePolicyRequest" type="pd:UpdatePolicyRequestType"/>
+					<xs:element name="UpdateVehicleRequest" type="pd:UpdateVehicleRequestType"/>
+					<xs:element name="UpdateVehicleRegistrantRequest" type="pd:UpdateVehicleRegistrantRequestType"/>
+					<xs:element name="UpdateVehIntPartyRequest" type="pd:UpdateVehIntPartyRqstType"/>
+					<xs:element name="UpdateViolationRequest" type="pd:UpdateViolationRequestType"/>
+					<xs:element name="UpdateWatercraftIntPartyRequest" type="pd:UpdateWatercraftIntPartyRqstType"/>
+					<xs:element name="UpdateWatercraftRequest" type="pd:UpdateWatercraftRequestType"/>
+					<xs:element name="VerifyAccessToInsuredRequest" type="pd:VerifyAccessToInsdRqstType"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="StatusType">
+		<xs:sequence>
+			<xs:element name="UniqueId" type="xs:string"/>
+			<xs:element name="Code" type="xs:string"/>
+			<xs:element name="Message" type="xs:string"/>
+			<xs:element name="Category" type="xs:string"/>
+			<xs:element name="Detail" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Key" type="xs:string"/>
+						<xs:element name="Value" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UnlockPolicyReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:UnlockPolicyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="unlockPolicy"/>
+	</xs:complexType>
+	<xs:group name="UnlockPolicyRqstGrp">
+		<xs:sequence>
+			<xs:element name="PolicyIdentifier" type="pd:PolicyIdentifierType"/>
+			<xs:element name="partialUnlock" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="UnlockPolicyRqstType">
+		<xs:group ref="pd:UnlockPolicyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="unlockPolicy"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBankVaultRqstType">
+		<xs:group ref="pd:AddUpdateBankVaultRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateBankVault"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBankVaultRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateBankVaultRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateBankVault"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessEventReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:CreateUpdateBusinessEventRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateBusinessEvent"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessEventRequestType">
+		<xs:group ref="pd:CreateUpdateBusinessEventRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateBusinessEvent"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessPursuitRqstType">
+		<xs:group ref="pd:AddUpdateBusinessPursuitRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateBusinessPursuit"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessPursuitRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateBusinessPursuitRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateBusinessPursuit"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateDriverReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateDriverRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateDriver"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateDriverRequestType">
+		<xs:group ref="pd:AddUpdateDriverRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateDriver"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateHomeIntPartyRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdatetHomeIntPartyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateHomeInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateHomeIntPartyRqstType">
+		<xs:group ref="pd:AddUpdatetHomeIntPartyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateHomeInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateHomeReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateHomeRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateHome"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateHomeRequestType">
+		<xs:group ref="pd:AddUpdateHomeRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateHome"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateInsuredReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:CreateUpdateInsuredRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateInsured"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateInsuredRequestType">
+		<xs:group ref="pd:CreateUpdateInsuredRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateInsured"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateLossReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddLossRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateLoss"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateLossRequestType">
+		<xs:group ref="pd:AddLossRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateLoss"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateNonResLicenseReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateNonResLicenseRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateNonResLicenseInfo"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateNonResLicenseRequestType">
+		<xs:group ref="pd:AddUpdateNonResLicenseRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateNonResLicenseInfo"/>
+	</xs:complexType>
+	<xs:complexType name="UpdatePolicyReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:UpdatePolicyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updatePolicy"/>
+	</xs:complexType>
+	<xs:complexType name="UpdatePolicyRequestType">
+		<xs:group ref="pd:UpdatePolicyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updatePolicy"/>
+	</xs:complexType>
+	<xs:group name="UpdatePolicyRqstGrp">
+		<xs:sequence>
+			<xs:element name="InsuredIdentifier" type="pd:InsuredIdentifierType" minOccurs="0"/>
+			<xs:element name="BusinessEventIdentifier" type="pd:BusinessEventIdentifierType"/>
+			<xs:element name="BusinessEventKind" type="pd:BusinessEventKindType"/>
+			<xs:element name="PolicyInformation" type="pd:PolicyType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="UpdateVehicleReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateVehicleRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateVehicle"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateVehicleRequestType">
+		<xs:group ref="pd:AddUpdateVehicleRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateVehicle"/>
+		<xs:attributeGroup ref="pd:VehicleProcessHintAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateVehicleRegistrantReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateVehicleRegistrantRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateVehReg"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateVehicleRegistrantRequestType">
+		<xs:group ref="pd:AddUpdateVehicleRegistrantRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateVehReg"/>
+		<xs:attributeGroup ref="pd:VehicleProcessHintAttrGrp"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateVehIntPartyRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateVehIntPartyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateVehicleInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateVehIntPartyRqstType">
+		<xs:group ref="pd:AddUpdateVehIntPartyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateVehicleInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateViolationReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddViolationRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateViolation"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateViolationRequestType">
+		<xs:group ref="pd:AddViolationRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateViolation"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateWatercraftIntPartyRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateWatercraftIntPartyRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateWatercraftInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateWatercraftIntPartyRqstType">
+		<xs:group ref="pd:AddUpdateWatercraftIntPartyRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateWatercraftInterestedParty"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateWatercraftReplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:AddUpdateWatercraftRqstGrp"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateWatercraft"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateWatercraftRequestType">
+		<xs:group ref="pd:AddUpdateWatercraftRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="updateWatercraft"/>
+	</xs:complexType>
+	<xs:complexType name="VerifyAccessToInsdRplyType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:group ref="pd:VerifyAccessToInsdRqstGrp"/>
+				<xs:element name="Authorized" type="xs:boolean"/>
+				<xs:element name="SuccessStatus" type="pd:StatusType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element name="Status" type="pd:StatusType"/>
+		</xs:choice>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="verifyAccessToInsured"/>
+	</xs:complexType>
+	<xs:group name="VerifyAccessToInsdRqstGrp">
+		<xs:sequence>
+			<xs:element name="InsuredIdentifier" type="pd:InsuredIdentifierType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="VerifyAccessToInsdRqstType">
+		<xs:group ref="pd:VerifyAccessToInsdRqstGrp"/>
+		<xs:attribute name="operationName" type="xs:string" use="required" fixed="verifyAccessToInsured"/>
+	</xs:complexType>
+	<xs:attributeGroup name="VehicleProcessHintAttrGrp">
+		<xs:attribute name="changeVehicleType" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="substituteVehicle" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="moveVehicle" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="otherVehicleRef" type="xs:integer" use="optional"/>
+	</xs:attributeGroup>
+</xs:schema>

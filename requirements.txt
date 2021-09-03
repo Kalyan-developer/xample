@@ -1,0 +1,3 @@
+PyYAML==3.13
+toolz==0.9.0
+xmltodict==0.12.0
